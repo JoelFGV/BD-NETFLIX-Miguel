@@ -4,10 +4,6 @@
   "service": "app",
   "workspaceFolder": "/workspace",
 
-  "features": {
-    "ghcr.io/devcontainers/features/postgresql:1": {}
-  },
-
   "containerEnv": {
     "PGUSER": "postgres",
     "PGPASSWORD": "mysecretpassword",
