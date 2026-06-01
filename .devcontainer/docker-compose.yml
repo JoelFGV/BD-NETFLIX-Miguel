@@ -3,8 +3,9 @@ services:
     image: mcr.microsoft.com/devcontainers/base:ubuntu
     volumes:
       - ..:/workspace:cached
+    working_dir: /workspace
     command: sleep infinity
-  
+
   db:
     image: postgres:15-alpine
     restart: unless-stopped
