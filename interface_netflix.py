@@ -51,7 +51,6 @@ class InterfaceNetflix:
         return True
     
     def criar_conta(self):
-        data
         """Criar nova conta Netflix"""
         self.limpar_tela()
         print("=" * 60)
