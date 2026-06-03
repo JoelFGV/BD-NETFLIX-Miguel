@@ -29,26 +29,59 @@ Implementar uma interface CRUD em Python para gerenciar um banco de dados Netfli
 
 ## 🚀 Como Executar
 
-### 1️⃣ Iniciar Ambiente
+### 🧰 Pré-requisitos
+- Python 3.10+ instalado
+- PostgreSQL instalado e em execução
+- Acesso ao usuário `postgres` no PostgreSQL
+
+> Se o repositório já tiver uma pasta `venv/` quebrada, recrie antes do setup:
+> ```bash
+> rm -rf venv
+> ```
+
+### 1️⃣ Criar o ambiente virtual Python
 ```bash
+cd /workspace
+python3 -m venv venv
 source venv/bin/activate
 ```
-### 2️⃣ Instalar Dependências
 
+> No Windows PowerShell:
+> ```powershell
+> python -m venv venv
+> venv\Scripts\Activate.ps1
+> ```
+
+### 2️⃣ Atualizar pip e instalar dependências
 ```bash
+python -m pip install --upgrade pip
 pip install -r requirements.txt
 ```
 
-
-### 3️⃣ Executar a Interface
+### 3️⃣ Criar o banco de dados PostgreSQL
 ```bash
-#Verificar o postgress
-psql -U postgres -d netflix -c "SELECT COUNT(*) FROM Conta;"
-#Rodar a interface
-python interface_netflix.py
+psql -U postgres -c "CREATE DATABASE netflix;"
+psql -U postgres -d netflix -f DDL.sql
+psql -U postgres -d netflix -f DML.sql
 ```
 
-### 4️⃣ Criar Índices (se ainda não criados)
+> Se o PostgreSQL exigir senha, defina antes:
+> ```bash
+> export PGPASSWORD='sua_senha'
+> ```
+
+### 4️⃣ Verificar conexão e rodar a interface
+```bash
+psql -U postgres -d netflix -c "SELECT COUNT(*) FROM Conta;"
+python executar_interface.py
+```
+
+> Alternativa direta:
+> ```bash
+> python interface_netflix.py
+> ```
+
+### 5️⃣ Criar índices de performance (opcional)
 ```bash
 psql -U postgres -d netflix -f criar_indices.sql
 ```
