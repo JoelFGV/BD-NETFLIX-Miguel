@@ -33,14 +33,17 @@ class InterfaceNetflix:
         print("=" * 60)
         print("\nEscolha uma opção:")
         print("1. Criar Conta")
-        print("2. Sair")
+        print("2. Entrar na Conta") # NOVA OPÇÃO
+        print("3. Sair")
         print("-" * 60)
         
-        opcao = input("Digite sua escolha (1-2): ").strip()
+        opcao = input("Digite sua escolha (1-3): ").strip()
         
         if opcao == "1":
             self.criar_conta()
         elif opcao == "2":
+            self.entrar_conta() # CHAMA O NOVO MÉTODO
+        elif opcao == "3":
             print("\n👋 Até logo!")
             return False
         else:
@@ -49,6 +52,90 @@ class InterfaceNetflix:
             return True
         
         return True
+
+    def entrar_conta(self):
+        """Fazer login em uma conta existente"""
+        self.limpar_tela()
+        print("=" * 60)
+        print("🔐 ENTRAR NA CONTA".center(60))
+        print("=" * 60)
+
+        email = input("\n📧 Email: ").strip()
+        senha = input("🔑 Senha: ").strip()
+
+        # Verificar credenciais no banco de dados
+        resultado = self.db.buscar_um(
+            "SELECT IDConta FROM Conta WHERE Email = %s AND Senha = %s",
+            (email, senha)
+        )
+
+        if resultado:
+            self.conta_atual = resultado[0]
+            print("\n✅ Login realizado com sucesso!")
+            input("Pressione ENTER para continuar...")
+            self.selecionar_perfil()
+        else:
+            print("\n❌ Email ou senha incorretos!")
+            input("Pressione ENTER para voltar ao menu inicial...")
+
+    def selecionar_perfil(self):
+        """Permite ao usuário selecionar um perfil após o login"""
+        while True:
+            self.limpar_tela()
+            print("=" * 60)
+            print("👥 QUEM ESTÁ ASSISTINDO?".center(60))
+            print("=" * 60)
+
+            # Busca todos os perfis atrelados a esta conta
+            perfis = self.db.buscar_todos(
+                "SELECT IDPerfil, Nome, Avatar FROM Perfil WHERE IDConta = %s ORDER BY IDPerfil",
+                (self.conta_atual,)
+            )
+
+            # Se por acaso a conta não tiver nenhum perfil, força a criação de um
+            if not perfis:
+                print("\n⚠️ Nenhum perfil encontrado nesta conta.")
+                print("Vamos criar um agora!")
+                input("Pressione ENTER para continuar...")
+                self.criar_perfil()
+                return
+
+            print("\n📋 PERFIS DISPONÍVEIS:")
+            print("-" * 60)
+            for id_perfil, nome, avatar in perfis:
+                print(f"  • ID: {id_perfil} | {nome} (Avatar: {avatar})")
+            
+            print("\n0. ➕ Criar Novo Perfil")
+            print("S. Sair da Conta (Voltar)")
+            print("-" * 60)
+
+            escolha = input("\nDigite o ID do perfil, '0' para criar, ou 'S' para sair: ").strip().upper()
+
+            if escolha == 'S':
+                self.conta_atual = None # Desloga a conta
+                return
+            elif escolha == '0':
+                self.criar_perfil()
+                return
+            else:
+                try:
+                    id_escolhido = int(escolha)
+                    
+                    # Verifica se o ID digitado realmente pertence a essa conta
+                    valido = any(p[0] == id_escolhido for p in perfis)
+                    
+                    if valido:
+                        self.perfil_atual = id_escolhido
+                        print(f"\n✅ Bem-vindo(a)!")
+                        input("Pressione ENTER para entrar no catálogo...")
+                        self.menu_pos_conta()
+                        return # Quando sair do menu pos_conta, ele volta pra seleção de perfil ou sai
+                    else:
+                        print("\n❌ ID de perfil inválido ou não pertence a esta conta!")
+                        input("Pressione ENTER para tentar novamente...")
+                except ValueError:
+                    print("\n❌ Opção inválida! Digite um número de ID.")
+                    input("Pressione ENTER para tentar novamente...")
     
     def criar_conta(self):
         """Criar nova conta Netflix"""
