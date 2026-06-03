@@ -2,7 +2,7 @@
   "name": "Netflix - Docker Compose com APP",
   "dockerComposeFile": "docker-compose.yml",
   "service": "app",
-  "workspaceFolder": "/workspace",
+  "workspaceFolder": "/workspaces/netflix",
 
   "containerEnv": {
     "PGUSER": "postgres",
