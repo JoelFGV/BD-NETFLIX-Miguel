@@ -2,8 +2,8 @@ services:
   app:
     image: mcr.microsoft.com/devcontainers/python:0-ubuntu-22.04
     volumes:
-      - ..:/workspaces/netflix:cached
-    working_dir: /workspaces/netflix
+      - ..:/workspaces/BD-NETFLIX-Miguel:cached
+    working_dir: /workspaces/BD-NETFLIX-Miguel
     command: sleep infinity
 
   db:
