@@ -4,6 +4,8 @@
   "service": "app",
   "workspaceFolder": "/workspaces/BD-NETFLIX-Miguel",
 
+  "remoteUser": "root",
+
   "containerEnv": {
     "PGUSER": "postgres",
     "PGPASSWORD": "mysecretpassword",
