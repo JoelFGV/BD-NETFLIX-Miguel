@@ -29,22 +29,22 @@ Implementar uma interface CRUD em Python para gerenciar um banco de dados Netfli
 
 ## 🚀 Como Executar
 
-### 1️⃣ Instalar Dependências
+### 1️⃣ Iniciar Ambiente
+```bash
+source venv/bin/activate
+```
+### 2️⃣ Instalar Dependências
+
 ```bash
 pip install -r requirements.txt
 ```
 
-### 2️⃣ Garantir que o PostgreSQL está rodando
-```bash
-# Verificar se o serviço está ativo (Linux)
-systemctl status postgresql
-
-# Ou conectar diretamente
-psql -U postgres -d netflix -c "SELECT COUNT(*) FROM Conta;"
-```
 
 ### 3️⃣ Executar a Interface
 ```bash
+#Verificar o postgress
+psql -U postgres -d netflix -c "SELECT COUNT(*) FROM Conta;"
+#Rodar a interface
 python interface_netflix.py
 ```
 
