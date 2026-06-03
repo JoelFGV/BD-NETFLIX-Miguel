@@ -11,5 +11,5 @@
     "PGHOST": "db"
   },
 
-  "postCreateCommand": "sudo apt-get update && sudo apt-get install -y postgresql-client"
+  "postCreateCommand": "sudo apt-get update && sudo apt-get install -y postgresql-client && python3 -m pip install --upgrade pip && python3 -m pip install -r requirements.txt"
 }

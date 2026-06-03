@@ -52,6 +52,18 @@ source venv/bin/activate
 > venv\Scripts\Activate.ps1
 > ```
 
+### 🧪 Usando Codespaces ou Devcontainer
+Se você abriu este projeto em um Codespace ou usando o Devcontainer (`.devcontainer/`), o ambiente já será preparado automaticamente.
+
+- O container instalará Python 3, `pip` e o cliente PostgreSQL.
+- As dependências em `requirements.txt` serão instaladas automaticamente após a criação do container.
+
+Basta abrir o workspace no Codespace e aguardar a configuração finalizar. Depois execute:
+```bash
+cd /workspace
+python3 executar_interface.py
+```
+
 ### 2️⃣ Atualizar pip e instalar dependências
 ```bash
 python -m pip install --upgrade pip

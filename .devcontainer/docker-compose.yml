@@ -1,6 +1,6 @@
 services:
   app:
-    image: mcr.microsoft.com/devcontainers/base:ubuntu
+    image: mcr.microsoft.com/devcontainers/python:0-ubuntu-22.04
     volumes:
       - ..:/workspace:cached
     working_dir: /workspace
