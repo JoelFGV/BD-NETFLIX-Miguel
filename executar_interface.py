@@ -67,7 +67,7 @@ def main():
     print("\n1. Iniciar Interface CRUD (Usuário)")
     print("2. Executar Testes de Conexão e Performance")
     print("3. Ver Índices Criados no Banco")
-    print("4. Painel Administrativo")
+    print("4. Iniciar Interface de Administrador")
     print("5. Sair")
     print()
     
