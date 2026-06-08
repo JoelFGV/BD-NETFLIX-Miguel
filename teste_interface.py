@@ -22,6 +22,8 @@ def teste_performance():
     
     try:
         db.executar("DROP INDEX IF EXISTS idx_generoobra_idgenero;")
+        for _ in range(3):
+            db.buscar_todos(query_alvo)
 
         linhas_sem = db.buscar_todos(f"EXPLAIN ANALYZE {query_alvo}")
         
@@ -35,6 +37,8 @@ def teste_performance():
                 busca_sem = texto.strip().split(" on ")[0]
 
         db.executar("CREATE INDEX idx_generoobra_idgenero ON GeneroObra(IDGenero);")
+        for _ in range(3):
+            db.buscar_todos(query_alvo)
         
         linhas_com = db.buscar_todos(f"EXPLAIN ANALYZE {query_alvo}")
         

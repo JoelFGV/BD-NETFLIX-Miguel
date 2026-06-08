@@ -2,10 +2,10 @@
 -- PostgreSQL database dump
 --
 
-\restrict hnWP2kU46uSFeR3d7corcbdlPjKB91NwORxDAgZqBnwC0OR4P338AkcJZwZkLal
+\restrict 1R9quYQ20OhHYIpHKC6R6J5590zB5fbOGs0q2IGTgEAWpHubAvhX5bhpM2qeOog
 
 -- Dumped from database version 15.18
--- Dumped by pg_dump version 16.14 (Ubuntu 16.14-0ubuntu0.24.04.1)
+-- Dumped by pg_dump version 15.18 (Debian 15.18-0+deb12u1)
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -18,104 +18,6 @@ SET xmloption = content;
 SET client_min_messages = warning;
 SET row_security = off;
 
-ALTER TABLE ONLY public.temporada DROP CONSTRAINT temporada_idserie_fkey;
-ALTER TABLE ONLY public.serie DROP CONSTRAINT serie_idobra_fkey;
-ALTER TABLE ONLY public.perfilcatalogo DROP CONSTRAINT perfilcatalogo_idperfil_fkey;
-ALTER TABLE ONLY public.perfilcatalogo DROP CONSTRAINT perfilcatalogo_idcatalogo_fkey;
-ALTER TABLE ONLY public.perfil DROP CONSTRAINT perfil_idconta_fkey;
-ALTER TABLE ONLY public.obracatalogo DROP CONSTRAINT obracatalogo_idobra_fkey;
-ALTER TABLE ONLY public.obracatalogo DROP CONSTRAINT obracatalogo_idcatalogo_fkey;
-ALTER TABLE ONLY public.historico DROP CONSTRAINT historico_idperfil_fkey;
-ALTER TABLE ONLY public.historico DROP CONSTRAINT historico_idobra_fkey;
-ALTER TABLE ONLY public.generoobra DROP CONSTRAINT generoobra_idobra_fkey;
-ALTER TABLE ONLY public.generoobra DROP CONSTRAINT generoobra_idgenero_fkey;
-ALTER TABLE ONLY public.filme DROP CONSTRAINT filme_idobra_fkey;
-ALTER TABLE ONLY public.episodio DROP CONSTRAINT episodio_idtemporada_fkey;
-ALTER TABLE ONLY public.elenco DROP CONSTRAINT elenco_idobra_fkey;
-ALTER TABLE ONLY public.conta DROP CONSTRAINT conta_idendereco_fkey;
-ALTER TABLE ONLY public.atoreelenco DROP CONSTRAINT atoreelenco_idelenco_fkey;
-ALTER TABLE ONLY public.atoreelenco DROP CONSTRAINT atoreelenco_idator_fkey;
-ALTER TABLE ONLY public.assinatura DROP CONSTRAINT assinatura_idplano_fkey;
-ALTER TABLE ONLY public.assinatura DROP CONSTRAINT assinatura_idconta_fkey;
-ALTER TABLE ONLY public.temporada DROP CONSTRAINT temporada_pkey;
-ALTER TABLE ONLY public.serie DROP CONSTRAINT serie_pkey;
-ALTER TABLE ONLY public.serie DROP CONSTRAINT serie_idobra_key;
-ALTER TABLE ONLY public.plano DROP CONSTRAINT plano_pkey;
-ALTER TABLE ONLY public.perfilcatalogo DROP CONSTRAINT perfilcatalogo_pkey;
-ALTER TABLE ONLY public.perfil DROP CONSTRAINT perfil_pkey;
-ALTER TABLE ONLY public.obracatalogo DROP CONSTRAINT obracatalogo_pkey;
-ALTER TABLE ONLY public.obra DROP CONSTRAINT obra_pkey;
-ALTER TABLE ONLY public.historico DROP CONSTRAINT historico_pkey;
-ALTER TABLE ONLY public.generoobra DROP CONSTRAINT generoobra_pkey;
-ALTER TABLE ONLY public.genero DROP CONSTRAINT genero_pkey;
-ALTER TABLE ONLY public.filme DROP CONSTRAINT filme_pkey;
-ALTER TABLE ONLY public.filme DROP CONSTRAINT filme_idobra_key;
-ALTER TABLE ONLY public.episodio DROP CONSTRAINT episodio_pkey;
-ALTER TABLE ONLY public.endereco DROP CONSTRAINT endereco_pkey;
-ALTER TABLE ONLY public.elenco DROP CONSTRAINT elenco_pkey;
-ALTER TABLE ONLY public.conta DROP CONSTRAINT conta_pkey;
-ALTER TABLE ONLY public.conta DROP CONSTRAINT conta_email_key;
-ALTER TABLE ONLY public.catalogo DROP CONSTRAINT catalogo_pkey;
-ALTER TABLE ONLY public.atoreelenco DROP CONSTRAINT atoreelenco_pkey;
-ALTER TABLE ONLY public.ator DROP CONSTRAINT ator_pkey;
-ALTER TABLE ONLY public.assinatura DROP CONSTRAINT assinatura_pkey;
-ALTER TABLE public.temporada ALTER COLUMN idtemporada DROP DEFAULT;
-ALTER TABLE public.serie ALTER COLUMN idserie DROP DEFAULT;
-ALTER TABLE public.plano ALTER COLUMN idplano DROP DEFAULT;
-ALTER TABLE public.perfilcatalogo ALTER COLUMN idperfilcatalogo DROP DEFAULT;
-ALTER TABLE public.perfil ALTER COLUMN idperfil DROP DEFAULT;
-ALTER TABLE public.obracatalogo ALTER COLUMN idobracatalogo DROP DEFAULT;
-ALTER TABLE public.obra ALTER COLUMN idobra DROP DEFAULT;
-ALTER TABLE public.historico ALTER COLUMN idhistorico DROP DEFAULT;
-ALTER TABLE public.generoobra ALTER COLUMN idgeneroobra DROP DEFAULT;
-ALTER TABLE public.genero ALTER COLUMN idgenero DROP DEFAULT;
-ALTER TABLE public.filme ALTER COLUMN idfilme DROP DEFAULT;
-ALTER TABLE public.episodio ALTER COLUMN idepisodio DROP DEFAULT;
-ALTER TABLE public.endereco ALTER COLUMN idendereco DROP DEFAULT;
-ALTER TABLE public.elenco ALTER COLUMN idelenco DROP DEFAULT;
-ALTER TABLE public.conta ALTER COLUMN idconta DROP DEFAULT;
-ALTER TABLE public.catalogo ALTER COLUMN idcatalogo DROP DEFAULT;
-ALTER TABLE public.atoreelenco ALTER COLUMN idatoreelenco DROP DEFAULT;
-ALTER TABLE public.ator ALTER COLUMN idator DROP DEFAULT;
-ALTER TABLE public.assinatura ALTER COLUMN idassinatura DROP DEFAULT;
-DROP SEQUENCE public.temporada_idtemporada_seq;
-DROP TABLE public.temporada;
-DROP SEQUENCE public.serie_idserie_seq;
-DROP TABLE public.serie;
-DROP SEQUENCE public.plano_idplano_seq;
-DROP TABLE public.plano;
-DROP SEQUENCE public.perfilcatalogo_idperfilcatalogo_seq;
-DROP TABLE public.perfilcatalogo;
-DROP SEQUENCE public.perfil_idperfil_seq;
-DROP TABLE public.perfil;
-DROP SEQUENCE public.obracatalogo_idobracatalogo_seq;
-DROP TABLE public.obracatalogo;
-DROP SEQUENCE public.obra_idobra_seq;
-DROP TABLE public.obra;
-DROP SEQUENCE public.historico_idhistorico_seq;
-DROP TABLE public.historico;
-DROP SEQUENCE public.generoobra_idgeneroobra_seq;
-DROP TABLE public.generoobra;
-DROP SEQUENCE public.genero_idgenero_seq;
-DROP TABLE public.genero;
-DROP SEQUENCE public.filme_idfilme_seq;
-DROP TABLE public.filme;
-DROP SEQUENCE public.episodio_idepisodio_seq;
-DROP TABLE public.episodio;
-DROP SEQUENCE public.endereco_idendereco_seq;
-DROP TABLE public.endereco;
-DROP SEQUENCE public.elenco_idelenco_seq;
-DROP TABLE public.elenco;
-DROP SEQUENCE public.conta_idconta_seq;
-DROP TABLE public.conta;
-DROP SEQUENCE public.catalogo_idcatalogo_seq;
-DROP TABLE public.catalogo;
-DROP SEQUENCE public.atoreelenco_idatoreelenco_seq;
-DROP TABLE public.atoreelenco;
-DROP SEQUENCE public.ator_idator_seq;
-DROP TABLE public.ator;
-DROP SEQUENCE public.assinatura_idassinatura_seq;
-DROP TABLE public.assinatura;
 SET default_tablespace = '';
 
 SET default_table_access_method = heap;
@@ -148,7 +50,7 @@ CREATE SEQUENCE public.assinatura_idassinatura_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.assinatura_idassinatura_seq OWNER TO postgres;
+ALTER TABLE public.assinatura_idassinatura_seq OWNER TO postgres;
 
 --
 -- Name: assinatura_idassinatura_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
@@ -183,7 +85,7 @@ CREATE SEQUENCE public.ator_idator_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.ator_idator_seq OWNER TO postgres;
+ALTER TABLE public.ator_idator_seq OWNER TO postgres;
 
 --
 -- Name: ator_idator_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
@@ -219,7 +121,7 @@ CREATE SEQUENCE public.atoreelenco_idatoreelenco_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.atoreelenco_idatoreelenco_seq OWNER TO postgres;
+ALTER TABLE public.atoreelenco_idatoreelenco_seq OWNER TO postgres;
 
 --
 -- Name: atoreelenco_idatoreelenco_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
@@ -252,7 +154,7 @@ CREATE SEQUENCE public.catalogo_idcatalogo_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.catalogo_idcatalogo_seq OWNER TO postgres;
+ALTER TABLE public.catalogo_idcatalogo_seq OWNER TO postgres;
 
 --
 -- Name: catalogo_idcatalogo_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
@@ -288,7 +190,7 @@ CREATE SEQUENCE public.conta_idconta_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.conta_idconta_seq OWNER TO postgres;
+ALTER TABLE public.conta_idconta_seq OWNER TO postgres;
 
 --
 -- Name: conta_idconta_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
@@ -322,7 +224,7 @@ CREATE SEQUENCE public.elenco_idelenco_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.elenco_idelenco_seq OWNER TO postgres;
+ALTER TABLE public.elenco_idelenco_seq OWNER TO postgres;
 
 --
 -- Name: elenco_idelenco_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
@@ -358,7 +260,7 @@ CREATE SEQUENCE public.endereco_idendereco_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.endereco_idendereco_seq OWNER TO postgres;
+ALTER TABLE public.endereco_idendereco_seq OWNER TO postgres;
 
 --
 -- Name: endereco_idendereco_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
@@ -395,7 +297,7 @@ CREATE SEQUENCE public.episodio_idepisodio_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.episodio_idepisodio_seq OWNER TO postgres;
+ALTER TABLE public.episodio_idepisodio_seq OWNER TO postgres;
 
 --
 -- Name: episodio_idepisodio_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
@@ -431,7 +333,7 @@ CREATE SEQUENCE public.filme_idfilme_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.filme_idfilme_seq OWNER TO postgres;
+ALTER TABLE public.filme_idfilme_seq OWNER TO postgres;
 
 --
 -- Name: filme_idfilme_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
@@ -465,7 +367,7 @@ CREATE SEQUENCE public.genero_idgenero_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.genero_idgenero_seq OWNER TO postgres;
+ALTER TABLE public.genero_idgenero_seq OWNER TO postgres;
 
 --
 -- Name: genero_idgenero_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
@@ -500,7 +402,7 @@ CREATE SEQUENCE public.generoobra_idgeneroobra_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.generoobra_idgeneroobra_seq OWNER TO postgres;
+ALTER TABLE public.generoobra_idgeneroobra_seq OWNER TO postgres;
 
 --
 -- Name: generoobra_idgeneroobra_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
@@ -536,7 +438,7 @@ CREATE SEQUENCE public.historico_idhistorico_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.historico_idhistorico_seq OWNER TO postgres;
+ALTER TABLE public.historico_idhistorico_seq OWNER TO postgres;
 
 --
 -- Name: historico_idhistorico_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
@@ -573,7 +475,7 @@ CREATE SEQUENCE public.obra_idobra_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.obra_idobra_seq OWNER TO postgres;
+ALTER TABLE public.obra_idobra_seq OWNER TO postgres;
 
 --
 -- Name: obra_idobra_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
@@ -608,7 +510,7 @@ CREATE SEQUENCE public.obracatalogo_idobracatalogo_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.obracatalogo_idobracatalogo_seq OWNER TO postgres;
+ALTER TABLE public.obracatalogo_idobracatalogo_seq OWNER TO postgres;
 
 --
 -- Name: obracatalogo_idobracatalogo_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
@@ -644,7 +546,7 @@ CREATE SEQUENCE public.perfil_idperfil_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.perfil_idperfil_seq OWNER TO postgres;
+ALTER TABLE public.perfil_idperfil_seq OWNER TO postgres;
 
 --
 -- Name: perfil_idperfil_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
@@ -679,7 +581,7 @@ CREATE SEQUENCE public.perfilcatalogo_idperfilcatalogo_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.perfilcatalogo_idperfilcatalogo_seq OWNER TO postgres;
+ALTER TABLE public.perfilcatalogo_idperfilcatalogo_seq OWNER TO postgres;
 
 --
 -- Name: perfilcatalogo_idperfilcatalogo_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
@@ -716,7 +618,7 @@ CREATE SEQUENCE public.plano_idplano_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.plano_idplano_seq OWNER TO postgres;
+ALTER TABLE public.plano_idplano_seq OWNER TO postgres;
 
 --
 -- Name: plano_idplano_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
@@ -751,7 +653,7 @@ CREATE SEQUENCE public.serie_idserie_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.serie_idserie_seq OWNER TO postgres;
+ALTER TABLE public.serie_idserie_seq OWNER TO postgres;
 
 --
 -- Name: serie_idserie_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
@@ -788,7 +690,7 @@ CREATE SEQUENCE public.temporada_idtemporada_seq
     CACHE 1;
 
 
-ALTER SEQUENCE public.temporada_idtemporada_seq OWNER TO postgres;
+ALTER TABLE public.temporada_idtemporada_seq OWNER TO postgres;
 
 --
 -- Name: temporada_idtemporada_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
@@ -934,289 +836,327 @@ ALTER TABLE ONLY public.temporada ALTER COLUMN idtemporada SET DEFAULT nextval('
 -- Data for Name: assinatura; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO public.assinatura (idassinatura, datainicio, datafim, idplano, idconta) VALUES (1, '2025-10-01', '2025-11-01', 1, 1);
-INSERT INTO public.assinatura (idassinatura, datainicio, datafim, idplano, idconta) VALUES (2, '2025-11-01', '2025-12-01', 2, 1);
-INSERT INTO public.assinatura (idassinatura, datainicio, datafim, idplano, idconta) VALUES (3, '2025-12-01', '2026-01-01', 3, 1);
-INSERT INTO public.assinatura (idassinatura, datainicio, datafim, idplano, idconta) VALUES (4, '2026-02-01', '2026-03-01', 3, 1);
-INSERT INTO public.assinatura (idassinatura, datainicio, datafim, idplano, idconta) VALUES (5, '2026-03-03', '2026-04-03', 2, 2);
-INSERT INTO public.assinatura (idassinatura, datainicio, datafim, idplano, idconta) VALUES (6, '2026-03-15', '2026-04-15', 2, 3);
-INSERT INTO public.assinatura (idassinatura, datainicio, datafim, idplano, idconta) VALUES (7, '2026-04-01', '2026-05-01', 3, 1);
-INSERT INTO public.assinatura (idassinatura, datainicio, datafim, idplano, idconta) VALUES (8, '2026-04-01', '2026-05-01', 1, 4);
-INSERT INTO public.assinatura (idassinatura, datainicio, datafim, idplano, idconta) VALUES (9, '2026-04-02', '2026-05-02', 2, 5);
-INSERT INTO public.assinatura (idassinatura, datainicio, datafim, idplano, idconta) VALUES (10, '2026-04-04', '2026-05-04', 1, 2);
+COPY public.assinatura (idassinatura, datainicio, datafim, idplano, idconta) FROM stdin;
+1	2025-10-01	2025-11-01	1	1
+2	2025-11-01	2025-12-01	2	1
+3	2025-12-01	2026-01-01	3	1
+4	2026-02-01	2026-03-01	3	1
+5	2026-03-03	2026-04-03	2	2
+6	2026-03-15	2026-04-15	2	3
+7	2026-04-01	2026-05-01	3	1
+8	2026-04-01	2026-05-01	1	4
+9	2026-04-02	2026-05-02	2	5
+10	2026-04-04	2026-05-04	1	2
+\.
 
 
 --
 -- Data for Name: ator; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO public.ator (idator, nome, nacionalidade) VALUES (1, 'Mason Thames', 'Americano');
-INSERT INTO public.ator (idator, nome, nacionalidade) VALUES (2, 'Nico Parker', 'Britânica');
-INSERT INTO public.ator (idator, nome, nacionalidade) VALUES (3, 'Matthew McConaughey', 'Americano');
-INSERT INTO public.ator (idator, nome, nacionalidade) VALUES (4, 'Wes Bentley', 'Americano');
-INSERT INTO public.ator (idator, nome, nacionalidade) VALUES (5, 'Bryan Cranston', 'Americano');
-INSERT INTO public.ator (idator, nome, nacionalidade) VALUES (6, 'Giancarlo Esposito', 'Americano');
-INSERT INTO public.ator (idator, nome, nacionalidade) VALUES (7, 'Jennifer Lawrence', 'Americano');
-INSERT INTO public.ator (idator, nome, nacionalidade) VALUES (8, 'Dylan OBrien', 'Americano');
+COPY public.ator (idator, nome, nacionalidade) FROM stdin;
+1	Mason Thames	Americano
+2	Nico Parker	Britânica
+3	Matthew McConaughey	Americano
+4	Wes Bentley	Americano
+5	Bryan Cranston	Americano
+6	Giancarlo Esposito	Americano
+7	Jennifer Lawrence	Americano
+8	Dylan OBrien	Americano
+\.
 
 
 --
 -- Data for Name: atoreelenco; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO public.atoreelenco (idatoreelenco, nomepersonagem, idelenco, idator) VALUES (1, 'Soluço', 1, 1);
-INSERT INTO public.atoreelenco (idatoreelenco, nomepersonagem, idelenco, idator) VALUES (2, 'Astrid', 1, 2);
-INSERT INTO public.atoreelenco (idatoreelenco, nomepersonagem, idelenco, idator) VALUES (3, 'Cooper', 2, 3);
-INSERT INTO public.atoreelenco (idatoreelenco, nomepersonagem, idelenco, idator) VALUES (4, 'Doyle', 2, 4);
-INSERT INTO public.atoreelenco (idatoreelenco, nomepersonagem, idelenco, idator) VALUES (5, 'Walter White', 3, 5);
-INSERT INTO public.atoreelenco (idatoreelenco, nomepersonagem, idelenco, idator) VALUES (6, 'Gus Fring', 3, 6);
-INSERT INTO public.atoreelenco (idatoreelenco, nomepersonagem, idelenco, idator) VALUES (7, 'Katniss Everdeen', 4, 7);
-INSERT INTO public.atoreelenco (idatoreelenco, nomepersonagem, idelenco, idator) VALUES (8, 'Seneca Crane', 4, 4);
-INSERT INTO public.atoreelenco (idatoreelenco, nomepersonagem, idelenco, idator) VALUES (9, 'Thomas', 5, 8);
-INSERT INTO public.atoreelenco (idatoreelenco, nomepersonagem, idelenco, idator) VALUES (10, 'Jorge', 5, 6);
-INSERT INTO public.atoreelenco (idatoreelenco, nomepersonagem, idelenco, idator) VALUES (11, 'Gus Fring', 6, 6);
-INSERT INTO public.atoreelenco (idatoreelenco, nomepersonagem, idelenco, idator) VALUES (12, 'Moff Gideon', 7, 6);
-INSERT INTO public.atoreelenco (idatoreelenco, nomepersonagem, idelenco, idator) VALUES (13, 'Stan Edgar', 8, 6);
-INSERT INTO public.atoreelenco (idatoreelenco, nomepersonagem, idelenco, idator) VALUES (14, 'Frank Dawson', 9, 6);
-INSERT INTO public.atoreelenco (idatoreelenco, nomepersonagem, idelenco, idator) VALUES (15, 'Tom Neville', 10, 6);
+COPY public.atoreelenco (idatoreelenco, nomepersonagem, idelenco, idator) FROM stdin;
+1	Soluço	1	1
+2	Astrid	1	2
+3	Cooper	2	3
+4	Doyle	2	4
+5	Walter White	3	5
+6	Gus Fring	3	6
+7	Katniss Everdeen	4	7
+8	Seneca Crane	4	4
+9	Thomas	5	8
+10	Jorge	5	6
+11	Gus Fring	6	6
+12	Moff Gideon	7	6
+13	Stan Edgar	8	6
+14	Frank Dawson	9	6
+15	Tom Neville	10	6
+\.
 
 
 --
 -- Data for Name: catalogo; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO public.catalogo (idcatalogo) VALUES (1);
-INSERT INTO public.catalogo (idcatalogo) VALUES (2);
-INSERT INTO public.catalogo (idcatalogo) VALUES (3);
-INSERT INTO public.catalogo (idcatalogo) VALUES (4);
-INSERT INTO public.catalogo (idcatalogo) VALUES (5);
+COPY public.catalogo (idcatalogo) FROM stdin;
+1
+2
+3
+4
+5
+\.
 
 
 --
 -- Data for Name: conta; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO public.conta (idconta, email, senha, idendereco) VALUES (1, 'ana@gmail.com', 'Ana123', 1);
-INSERT INTO public.conta (idconta, email, senha, idendereco) VALUES (2, 'bruno@gmail.com', 'Bruno321', 2);
-INSERT INTO public.conta (idconta, email, senha, idendereco) VALUES (3, 'caio@gmail.com', '0C_20', 3);
-INSERT INTO public.conta (idconta, email, senha, idendereco) VALUES (4, 'diana@gmail.com', 'Diana951', 4);
-INSERT INTO public.conta (idconta, email, senha, idendereco) VALUES (5, 'edna@gmail.com', 'Edna123', 5);
+COPY public.conta (idconta, email, senha, idendereco) FROM stdin;
+1	ana@gmail.com	Ana123	1
+2	bruno@gmail.com	Bruno321	2
+3	caio@gmail.com	0C_20	3
+4	diana@gmail.com	Diana951	4
+5	edna@gmail.com	Edna123	5
+\.
 
 
 --
 -- Data for Name: elenco; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO public.elenco (idelenco, idobra) VALUES (1, 1);
-INSERT INTO public.elenco (idelenco, idobra) VALUES (2, 2);
-INSERT INTO public.elenco (idelenco, idobra) VALUES (3, 3);
-INSERT INTO public.elenco (idelenco, idobra) VALUES (4, 4);
-INSERT INTO public.elenco (idelenco, idobra) VALUES (5, 5);
-INSERT INTO public.elenco (idelenco, idobra) VALUES (6, 6);
-INSERT INTO public.elenco (idelenco, idobra) VALUES (7, 7);
-INSERT INTO public.elenco (idelenco, idobra) VALUES (8, 8);
-INSERT INTO public.elenco (idelenco, idobra) VALUES (9, 9);
-INSERT INTO public.elenco (idelenco, idobra) VALUES (10, 10);
+COPY public.elenco (idelenco, idobra) FROM stdin;
+1	1
+2	2
+3	3
+4	4
+5	5
+6	6
+7	7
+8	8
+9	9
+10	10
+\.
 
 
 --
 -- Data for Name: endereco; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO public.endereco (idendereco, pais, estado, cidade) VALUES (1, 'Brasil', 'São Paulo', 'São Paulo');
-INSERT INTO public.endereco (idendereco, pais, estado, cidade) VALUES (2, 'Brasil', 'Rio de Janeiro', 'Niterói');
-INSERT INTO public.endereco (idendereco, pais, estado, cidade) VALUES (3, 'Portugal', 'Lisboa', 'Lisboa');
-INSERT INTO public.endereco (idendereco, pais, estado, cidade) VALUES (4, 'Brasil', 'Minas Gerais', 'Belo Horizonte');
-INSERT INTO public.endereco (idendereco, pais, estado, cidade) VALUES (5, 'Canadá', 'Ontário', 'Toronto');
+COPY public.endereco (idendereco, pais, estado, cidade) FROM stdin;
+1	Brasil	São Paulo	São Paulo
+2	Brasil	Rio de Janeiro	Niterói
+3	Portugal	Lisboa	Lisboa
+4	Brasil	Minas Gerais	Belo Horizonte
+5	Canadá	Ontário	Toronto
+\.
 
 
 --
 -- Data for Name: episodio; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO public.episodio (idepisodio, idtemporada, titulo, duracaominutos, sinopse) VALUES (1, 1, 'Piloto', 58, ' Professor com câncer começa a fabricar metanfetamina no deserto.');
-INSERT INTO public.episodio (idepisodio, idtemporada, titulo, duracaominutos, sinopse) VALUES (2, 1, 'O Gato está no Saco...', 48, 'Walt e Jesse lidam com dois traficantes no porão.');
-INSERT INTO public.episodio (idepisodio, idtemporada, titulo, duracaominutos, sinopse) VALUES (3, 2, 'Sete Trinta e Sete', 47, 'Tuco sequestra Walt e Jesse após o negócio falhar.');
-INSERT INTO public.episodio (idepisodio, idtemporada, titulo, duracaominutos, sinopse) VALUES (4, 2, 'Na Grelha', 47, 'Walt e Jesse tentam escapar da casa do tio de Tuco.');
-INSERT INTO public.episodio (idepisodio, idtemporada, titulo, duracaominutos, sinopse) VALUES (5, 3, 'No Más', 47, 'Walt lida com o divórcio enquanto Skyler descobre segredos.');
-INSERT INTO public.episodio (idepisodio, idtemporada, titulo, duracaominutos, sinopse) VALUES (6, 3, 'Cavalo sem Nome', 47, 'Walt tenta se reconciliar com a família após o acidente.');
-INSERT INTO public.episodio (idepisodio, idtemporada, titulo, duracaominutos, sinopse) VALUES (7, 4, 'Estilete', 47, 'Gus mata um capanga brutalmente para enviar um aviso.');
-INSERT INTO public.episodio (idepisodio, idtemporada, titulo, duracaominutos, sinopse) VALUES (8, 4, 'Trinta e Oito Cano Curto', 47, 'Walt compra uma arma ilegal para tentar matar Gus.');
-INSERT INTO public.episodio (idepisodio, idtemporada, titulo, duracaominutos, sinopse) VALUES (9, 5, 'Viver Livre ou Morrer', 43, 'Walt usa um superímã para destruir provas da polícia.');
-INSERT INTO public.episodio (idepisodio, idtemporada, titulo, duracaominutos, sinopse) VALUES (10, 5, 'Madrigal', 47, 'Mike e Walt formam uma nova parceria para o tráfico.');
-INSERT INTO public.episodio (idepisodio, idtemporada, titulo, duracaominutos, sinopse) VALUES (11, 6, 'Uno', 50, 'Advogado trapaceiro Jimmy McGill transforma-se no icônico e polêmico Saul.');
-INSERT INTO public.episodio (idepisodio, idtemporada, titulo, duracaominutos, sinopse) VALUES (12, 7, 'The Mandalorian', 40, 'Caçador de recompensas protege criança misteriosa em uma galáxia perigosa.');
-INSERT INTO public.episodio (idepisodio, idtemporada, titulo, duracaominutos, sinopse) VALUES (13, 8, 'The Name of The Game', 55, 'Vigilantes enfrentam super-heróis corruptos que abusam de seus poderes especiais.');
-INSERT INTO public.episodio (idepisodio, idtemporada, titulo, duracaominutos, sinopse) VALUES (14, 9, 'Piloto', 42, 'Sobreviventes buscam respostas em mundo onde toda eletricidade parou misteriosamente.');
+COPY public.episodio (idepisodio, idtemporada, titulo, duracaominutos, sinopse) FROM stdin;
+1	1	Piloto	58	 Professor com câncer começa a fabricar metanfetamina no deserto.
+2	1	O Gato está no Saco...	48	Walt e Jesse lidam com dois traficantes no porão.
+3	2	Sete Trinta e Sete	47	Tuco sequestra Walt e Jesse após o negócio falhar.
+4	2	Na Grelha	47	Walt e Jesse tentam escapar da casa do tio de Tuco.
+5	3	No Más	47	Walt lida com o divórcio enquanto Skyler descobre segredos.
+6	3	Cavalo sem Nome	47	Walt tenta se reconciliar com a família após o acidente.
+7	4	Estilete	47	Gus mata um capanga brutalmente para enviar um aviso.
+8	4	Trinta e Oito Cano Curto	47	Walt compra uma arma ilegal para tentar matar Gus.
+9	5	Viver Livre ou Morrer	43	Walt usa um superímã para destruir provas da polícia.
+10	5	Madrigal	47	Mike e Walt formam uma nova parceria para o tráfico.
+11	6	Uno	50	Advogado trapaceiro Jimmy McGill transforma-se no icônico e polêmico Saul.
+12	7	The Mandalorian	40	Caçador de recompensas protege criança misteriosa em uma galáxia perigosa.
+13	8	The Name of The Game	55	Vigilantes enfrentam super-heróis corruptos que abusam de seus poderes especiais.
+14	9	Piloto	42	Sobreviventes buscam respostas em mundo onde toda eletricidade parou misteriosamente.
+\.
 
 
 --
 -- Data for Name: filme; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO public.filme (idfilme, duracaominutos, anolancamento, idobra) VALUES (1, 125, 2025, 1);
-INSERT INTO public.filme (idfilme, duracaominutos, anolancamento, idobra) VALUES (2, 169, 2014, 2);
-INSERT INTO public.filme (idfilme, duracaominutos, anolancamento, idobra) VALUES (3, 144, 2012, 4);
-INSERT INTO public.filme (idfilme, duracaominutos, anolancamento, idobra) VALUES (4, 113, 2014, 5);
-INSERT INTO public.filme (idfilme, duracaominutos, anolancamento, idobra) VALUES (5, 120, 2017, 9);
+COPY public.filme (idfilme, duracaominutos, anolancamento, idobra) FROM stdin;
+1	125	2025	1
+2	169	2014	2
+3	144	2012	4
+4	113	2014	5
+5	120	2017	9
+\.
 
 
 --
 -- Data for Name: genero; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO public.genero (idgenero, nomegenero) VALUES (1, 'Fantasia');
-INSERT INTO public.genero (idgenero, nomegenero) VALUES (2, 'Aventura');
-INSERT INTO public.genero (idgenero, nomegenero) VALUES (3, 'Comédia');
-INSERT INTO public.genero (idgenero, nomegenero) VALUES (4, 'Ação');
-INSERT INTO public.genero (idgenero, nomegenero) VALUES (5, 'Drama');
-INSERT INTO public.genero (idgenero, nomegenero) VALUES (6, 'Ficção Científica');
-INSERT INTO public.genero (idgenero, nomegenero) VALUES (7, 'Suspense');
+COPY public.genero (idgenero, nomegenero) FROM stdin;
+1	Fantasia
+2	Aventura
+3	Comédia
+4	Ação
+5	Drama
+6	Ficção Científica
+7	Suspense
+\.
 
 
 --
 -- Data for Name: generoobra; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO public.generoobra (idgeneroobra, idgenero, idobra) VALUES (1, 1, 1);
-INSERT INTO public.generoobra (idgeneroobra, idgenero, idobra) VALUES (2, 2, 1);
-INSERT INTO public.generoobra (idgeneroobra, idgenero, idobra) VALUES (3, 3, 1);
-INSERT INTO public.generoobra (idgeneroobra, idgenero, idobra) VALUES (4, 6, 2);
-INSERT INTO public.generoobra (idgeneroobra, idgenero, idobra) VALUES (5, 5, 2);
-INSERT INTO public.generoobra (idgeneroobra, idgenero, idobra) VALUES (6, 5, 3);
-INSERT INTO public.generoobra (idgeneroobra, idgenero, idobra) VALUES (7, 7, 3);
-INSERT INTO public.generoobra (idgeneroobra, idgenero, idobra) VALUES (8, 4, 4);
-INSERT INTO public.generoobra (idgeneroobra, idgenero, idobra) VALUES (9, 6, 4);
-INSERT INTO public.generoobra (idgeneroobra, idgenero, idobra) VALUES (10, 4, 5);
-INSERT INTO public.generoobra (idgeneroobra, idgenero, idobra) VALUES (11, 7, 5);
-INSERT INTO public.generoobra (idgeneroobra, idgenero, idobra) VALUES (12, 3, 6);
-INSERT INTO public.generoobra (idgeneroobra, idgenero, idobra) VALUES (13, 4, 7);
-INSERT INTO public.generoobra (idgeneroobra, idgenero, idobra) VALUES (14, 2, 8);
-INSERT INTO public.generoobra (idgeneroobra, idgenero, idobra) VALUES (15, 7, 9);
-INSERT INTO public.generoobra (idgeneroobra, idgenero, idobra) VALUES (16, 5, 10);
+COPY public.generoobra (idgeneroobra, idgenero, idobra) FROM stdin;
+1	1	1
+2	2	1
+3	3	1
+4	6	2
+5	5	2
+6	5	3
+7	7	3
+8	4	4
+9	6	4
+10	4	5
+11	7	5
+12	3	6
+13	4	7
+14	2	8
+15	7	9
+16	5	10
+\.
 
 
 --
 -- Data for Name: historico; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO public.historico (idhistorico, datahora, idperfil, idobra) VALUES (1, '2026-03-25 08:45:12', 7, 4);
-INSERT INTO public.historico (idhistorico, datahora, idperfil, idobra) VALUES (2, '2026-03-30 10:00:05', 8, 5);
-INSERT INTO public.historico (idhistorico, datahora, idperfil, idobra) VALUES (3, '2026-04-01 15:20:33', 8, 2);
-INSERT INTO public.historico (idhistorico, datahora, idperfil, idobra) VALUES (4, '2026-04-03 23:59:59', 2, 1);
-INSERT INTO public.historico (idhistorico, datahora, idperfil, idobra) VALUES (5, '2026-04-04 09:12:11', 2, 3);
-INSERT INTO public.historico (idhistorico, datahora, idperfil, idobra) VALUES (6, '2026-04-05 18:05:42', 6, 2);
-INSERT INTO public.historico (idhistorico, datahora, idperfil, idobra) VALUES (7, '2026-04-05 22:15:08', 4, 4);
-INSERT INTO public.historico (idhistorico, datahora, idperfil, idobra) VALUES (8, '2026-04-06 12:30:00', 6, 4);
-INSERT INTO public.historico (idhistorico, datahora, idperfil, idobra) VALUES (9, '2026-04-06 14:40:00', 5, 2);
-INSERT INTO public.historico (idhistorico, datahora, idperfil, idobra) VALUES (10, '2026-04-06 14:44:52', 3, 2);
+COPY public.historico (idhistorico, datahora, idperfil, idobra) FROM stdin;
+1	2026-03-25 08:45:12	7	4
+2	2026-03-30 10:00:05	8	5
+3	2026-04-01 15:20:33	8	2
+4	2026-04-03 23:59:59	2	1
+5	2026-04-04 09:12:11	2	3
+6	2026-04-05 18:05:42	6	2
+7	2026-04-05 22:15:08	4	4
+8	2026-04-06 12:30:00	6	4
+9	2026-04-06 14:40:00	5	2
+10	2026-04-06 14:44:52	3	2
+\.
 
 
 --
 -- Data for Name: obra; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO public.obra (idobra, titulo, sinopse, classetaria, tipoobra) VALUES (1, 'Como Treinar o Seu Dragão', 'Soluço é um jovem viking que não tem capacidade para lutar contra os dragões, como é a tradição local. Sua vida muda quando ele ajuda um dragão que lhe mostra toda a verdade. Juntos, eles tentam provar que dragões e humanos podem ser amigos.', '10', 'Filme');
-INSERT INTO public.obra (idobra, titulo, sinopse, classetaria, tipoobra) VALUES (2, 'Interestelar', 'As reservas naturais da Terra estão chegando ao fim e um grupo de astronautas recebe a missão de verificar possíveis planetas para receberem a população mundial, possibilitando a continuação da espécie. Cooper é chamado para liderar o grupo e aceita a missão sabendo que pode nunca mais ver os filhos. Ao lado de Brand, Jenkins e Doyle, ele seguirá em busca de um novo lar.', '10', 'Filme');
-INSERT INTO public.obra (idobra, titulo, sinopse, classetaria, tipoobra) VALUES (3, 'Breaking Bad', 'narra a transformação de Walter White (Bryan Cranston), um professor de química frustrado e com câncer terminal, em um impiedoso produtor de metanfetamina. Para garantir o futuro financeiro de sua família, ele se alia ao ex-aluno Jesse Pinkman (Aaron Paul), mergulhando no perigoso mundo do crime em Albuquerque.', '16', 'Série');
-INSERT INTO public.obra (idobra, titulo, sinopse, classetaria, tipoobra) VALUES (4, 'Jogos Vorazes', 'Na região antigamente conhecida como América do Norte, a Capital de Panem controla 12 distritos e os força a escolher um garoto e uma garota, conhecidos como tributos, para competir em um evento anual televisionado. Todos os cidadãos assistem aos temidos jogos, no qual os jovens lutam até a morte, de modo que apenas um saia vitorioso. A jovem Katniss Everdeen, do Distrito 12, confia na habilidade de caça e na destreza com o arco, além dos instintos aguçados, nesta competição mortal.', '14', 'Filme');
-INSERT INTO public.obra (idobra, titulo, sinopse, classetaria, tipoobra) VALUES (5, 'Maze Runner', 'Em um futuro apocalíptico, o jovem Thomas é escolhido para enfrentar o sistema. Ele acorda num escuro elevador em movimento e não consegue se lembrar nem de seu nome. Na comunidade isolada em que foi abandonado, Thomas conhece outros garotos que passaram pela mesma situação. Para conseguir escapar, ele precisa descobrir os sombrios segredos guardados in sua mente e correr muito.', '14', 'Filme');
-INSERT INTO public.obra (idobra, titulo, sinopse, classetaria, tipoobra) VALUES (6, 'Better Call Saul', 'Advogado trapaceiro Jimmy McGill transforma-se no icônico e polêmico Saul.', '14', 'Série');
-INSERT INTO public.obra (idobra, titulo, sinopse, classetaria, tipoobra) VALUES (7, 'The Mandalorian', 'Caçador de recompensas protege criança misteriosa em uma galáxia perigosa.', '12', 'Série');
-INSERT INTO public.obra (idobra, titulo, sinopse, classetaria, tipoobra) VALUES (8, 'The Boys', 'Vigilantes enfrentam super-heróis corruptos que abusam de seus poderes especiais.', '18', 'Série');
-INSERT INTO public.obra (idobra, titulo, sinopse, classetaria, tipoobra) VALUES (9, 'Okja', 'Menina luta para salvar criatura gigante de uma corporação cruel.', '10', 'Filme');
-INSERT INTO public.obra (idobra, titulo, sinopse, classetaria, tipoobra) VALUES (10, 'Revolution', 'Sobreviventes buscam respostas em mundo onde toda eletricidade parou misteriosamente.', '10', 'Série');
+COPY public.obra (idobra, titulo, sinopse, classetaria, tipoobra) FROM stdin;
+1	Como Treinar o Seu Dragão	Soluço é um jovem viking que não tem capacidade para lutar contra os dragões, como é a tradição local. Sua vida muda quando ele ajuda um dragão que lhe mostra toda a verdade. Juntos, eles tentam provar que dragões e humanos podem ser amigos.	10	Filme
+2	Interestelar	As reservas naturais da Terra estão chegando ao fim e um grupo de astronautas recebe a missão de verificar possíveis planetas para receberem a população mundial, possibilitando a continuação da espécie. Cooper é chamado para liderar o grupo e aceita a missão sabendo que pode nunca mais ver os filhos. Ao lado de Brand, Jenkins e Doyle, ele seguirá em busca de um novo lar.	10	Filme
+3	Breaking Bad	narra a transformação de Walter White (Bryan Cranston), um professor de química frustrado e com câncer terminal, em um impiedoso produtor de metanfetamina. Para garantir o futuro financeiro de sua família, ele se alia ao ex-aluno Jesse Pinkman (Aaron Paul), mergulhando no perigoso mundo do crime em Albuquerque.	16	Série
+4	Jogos Vorazes	Na região antigamente conhecida como América do Norte, a Capital de Panem controla 12 distritos e os força a escolher um garoto e uma garota, conhecidos como tributos, para competir em um evento anual televisionado. Todos os cidadãos assistem aos temidos jogos, no qual os jovens lutam até a morte, de modo que apenas um saia vitorioso. A jovem Katniss Everdeen, do Distrito 12, confia na habilidade de caça e na destreza com o arco, além dos instintos aguçados, nesta competição mortal.	14	Filme
+5	Maze Runner	Em um futuro apocalíptico, o jovem Thomas é escolhido para enfrentar o sistema. Ele acorda num escuro elevador em movimento e não consegue se lembrar nem de seu nome. Na comunidade isolada em que foi abandonado, Thomas conhece outros garotos que passaram pela mesma situação. Para conseguir escapar, ele precisa descobrir os sombrios segredos guardados in sua mente e correr muito.	14	Filme
+6	Better Call Saul	Advogado trapaceiro Jimmy McGill transforma-se no icônico e polêmico Saul.	14	Série
+7	The Mandalorian	Caçador de recompensas protege criança misteriosa em uma galáxia perigosa.	12	Série
+8	The Boys	Vigilantes enfrentam super-heróis corruptos que abusam de seus poderes especiais.	18	Série
+9	Okja	Menina luta para salvar criatura gigante de uma corporação cruel.	10	Filme
+10	Revolution	Sobreviventes buscam respostas em mundo onde toda eletricidade parou misteriosamente.	10	Série
+\.
 
 
 --
 -- Data for Name: obracatalogo; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO public.obracatalogo (idobracatalogo, idobra, idcatalogo) VALUES (1, 1, 1);
-INSERT INTO public.obracatalogo (idobracatalogo, idobra, idcatalogo) VALUES (2, 2, 1);
-INSERT INTO public.obracatalogo (idobracatalogo, idobra, idcatalogo) VALUES (3, 3, 1);
-INSERT INTO public.obracatalogo (idobracatalogo, idobra, idcatalogo) VALUES (4, 4, 1);
-INSERT INTO public.obracatalogo (idobracatalogo, idobra, idcatalogo) VALUES (5, 5, 1);
-INSERT INTO public.obracatalogo (idobracatalogo, idobra, idcatalogo) VALUES (6, 2, 2);
-INSERT INTO public.obracatalogo (idobracatalogo, idobra, idcatalogo) VALUES (7, 3, 2);
-INSERT INTO public.obracatalogo (idobracatalogo, idobra, idcatalogo) VALUES (8, 4, 2);
-INSERT INTO public.obracatalogo (idobracatalogo, idobra, idcatalogo) VALUES (9, 5, 2);
-INSERT INTO public.obracatalogo (idobracatalogo, idobra, idcatalogo) VALUES (10, 2, 3);
-INSERT INTO public.obracatalogo (idobracatalogo, idobra, idcatalogo) VALUES (11, 4, 3);
-INSERT INTO public.obracatalogo (idobracatalogo, idobra, idcatalogo) VALUES (12, 1, 4);
-INSERT INTO public.obracatalogo (idobracatalogo, idobra, idcatalogo) VALUES (13, 1, 5);
-INSERT INTO public.obracatalogo (idobracatalogo, idobra, idcatalogo) VALUES (14, 3, 5);
-INSERT INTO public.obracatalogo (idobracatalogo, idobra, idcatalogo) VALUES (15, 5, 5);
-INSERT INTO public.obracatalogo (idobracatalogo, idobra, idcatalogo) VALUES (16, 6, 1);
-INSERT INTO public.obracatalogo (idobracatalogo, idobra, idcatalogo) VALUES (17, 7, 1);
-INSERT INTO public.obracatalogo (idobracatalogo, idobra, idcatalogo) VALUES (18, 8, 1);
-INSERT INTO public.obracatalogo (idobracatalogo, idobra, idcatalogo) VALUES (19, 9, 1);
-INSERT INTO public.obracatalogo (idobracatalogo, idobra, idcatalogo) VALUES (20, 10, 1);
+COPY public.obracatalogo (idobracatalogo, idobra, idcatalogo) FROM stdin;
+1	1	1
+2	2	1
+3	3	1
+4	4	1
+5	5	1
+6	2	2
+7	3	2
+8	4	2
+9	5	2
+10	2	3
+11	4	3
+12	1	4
+13	1	5
+14	3	5
+15	5	5
+16	6	1
+17	7	1
+18	8	1
+19	9	1
+20	10	1
+\.
 
 
 --
 -- Data for Name: perfil; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO public.perfil (idperfil, nome, avatar, idconta) VALUES (1, 'Ana', 'Red_3', 1);
-INSERT INTO public.perfil (idperfil, nome, avatar, idconta) VALUES (2, 'Bruno', 'Cavaleiro_2', 2);
-INSERT INTO public.perfil (idperfil, nome, avatar, idconta) VALUES (3, 'Caio', 'Dragao_5', 3);
-INSERT INTO public.perfil (idperfil, nome, avatar, idconta) VALUES (4, 'Diana', 'Princesa_1', 4);
-INSERT INTO public.perfil (idperfil, nome, avatar, idconta) VALUES (5, 'Edna', 'Green_4', 5);
-INSERT INTO public.perfil (idperfil, nome, avatar, idconta) VALUES (6, 'Fernando', 'Red_3', 4);
-INSERT INTO public.perfil (idperfil, nome, avatar, idconta) VALUES (7, 'Visitas', 'Divertidamente_3', 2);
-INSERT INTO public.perfil (idperfil, nome, avatar, idconta) VALUES (8, 'Maria', 'Princesa_1', 3);
-INSERT INTO public.perfil (idperfil, nome, avatar, idconta) VALUES (9, 'Gabriel', 'Marvel_2', 2);
+COPY public.perfil (idperfil, nome, avatar, idconta) FROM stdin;
+1	Ana	Red_3	1
+2	Bruno	Cavaleiro_2	2
+3	Caio	Dragao_5	3
+4	Diana	Princesa_1	4
+5	Edna	Green_4	5
+6	Fernando	Red_3	4
+7	Visitas	Divertidamente_3	2
+8	Maria	Princesa_1	3
+9	Gabriel	Marvel_2	2
+\.
 
 
 --
 -- Data for Name: perfilcatalogo; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO public.perfilcatalogo (idperfilcatalogo, idcatalogo, idperfil) VALUES (1, 1, 1);
-INSERT INTO public.perfilcatalogo (idperfilcatalogo, idcatalogo, idperfil) VALUES (2, 5, 2);
-INSERT INTO public.perfilcatalogo (idperfilcatalogo, idcatalogo, idperfil) VALUES (3, 1, 3);
-INSERT INTO public.perfilcatalogo (idperfilcatalogo, idcatalogo, idperfil) VALUES (4, 3, 4);
-INSERT INTO public.perfilcatalogo (idperfilcatalogo, idcatalogo, idperfil) VALUES (5, 1, 5);
-INSERT INTO public.perfilcatalogo (idperfilcatalogo, idcatalogo, idperfil) VALUES (6, 3, 6);
-INSERT INTO public.perfilcatalogo (idperfilcatalogo, idcatalogo, idperfil) VALUES (7, 1, 7);
-INSERT INTO public.perfilcatalogo (idperfilcatalogo, idcatalogo, idperfil) VALUES (8, 2, 8);
-INSERT INTO public.perfilcatalogo (idperfilcatalogo, idcatalogo, idperfil) VALUES (9, 1, 9);
+COPY public.perfilcatalogo (idperfilcatalogo, idcatalogo, idperfil) FROM stdin;
+1	1	1
+2	5	2
+3	1	3
+4	3	4
+5	1	5
+6	3	6
+7	1	7
+8	2	8
+9	1	9
+\.
 
 
 --
 -- Data for Name: plano; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO public.plano (idplano, nome, valor, duracaomeses, beneficios) VALUES (1, 'Padrão com anuncios', 20.90, 1, 'Veja filme em qualidade FHD com anuncios!');
-INSERT INTO public.plano (idplano, nome, valor, duracaomeses, beneficios) VALUES (2, 'Padrão', 44.90, 1, 'Veja filmes em qualidade FHD!');
-INSERT INTO public.plano (idplano, nome, valor, duracaomeses, beneficios) VALUES (3, 'Premium', 59.90, 1, 'Veja filmes em qualidade UHD e com HDR!');
+COPY public.plano (idplano, nome, valor, duracaomeses, beneficios) FROM stdin;
+1	Padrão com anuncios	20.90	1	Veja filme em qualidade FHD com anuncios!
+2	Padrão	44.90	1	Veja filmes em qualidade FHD!
+3	Premium	59.90	1	Veja filmes em qualidade UHD e com HDR!
+\.
 
 
 --
 -- Data for Name: serie; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO public.serie (idserie, qtdtemporadas, idobra) VALUES (1, 5, 3);
-INSERT INTO public.serie (idserie, qtdtemporadas, idobra) VALUES (2, 1, 6);
-INSERT INTO public.serie (idserie, qtdtemporadas, idobra) VALUES (3, 1, 7);
-INSERT INTO public.serie (idserie, qtdtemporadas, idobra) VALUES (4, 1, 8);
-INSERT INTO public.serie (idserie, qtdtemporadas, idobra) VALUES (5, 1, 10);
+COPY public.serie (idserie, qtdtemporadas, idobra) FROM stdin;
+1	5	3
+2	1	6
+3	1	7
+4	1	8
+5	1	10
+\.
 
 
 --
 -- Data for Name: temporada; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO public.temporada (idtemporada, numtemporada, qtdepisodios, anolancamento, idserie) VALUES (1, 1, 2, 2008, 1);
-INSERT INTO public.temporada (idtemporada, numtemporada, qtdepisodios, anolancamento, idserie) VALUES (2, 2, 2, 2009, 1);
-INSERT INTO public.temporada (idtemporada, numtemporada, qtdepisodios, anolancamento, idserie) VALUES (3, 3, 2, 2010, 1);
-INSERT INTO public.temporada (idtemporada, numtemporada, qtdepisodios, anolancamento, idserie) VALUES (4, 4, 2, 2011, 1);
-INSERT INTO public.temporada (idtemporada, numtemporada, qtdepisodios, anolancamento, idserie) VALUES (5, 5, 2, 2012, 1);
-INSERT INTO public.temporada (idtemporada, numtemporada, qtdepisodios, anolancamento, idserie) VALUES (6, 1, 1, 2015, 2);
-INSERT INTO public.temporada (idtemporada, numtemporada, qtdepisodios, anolancamento, idserie) VALUES (7, 1, 1, 2019, 3);
-INSERT INTO public.temporada (idtemporada, numtemporada, qtdepisodios, anolancamento, idserie) VALUES (8, 1, 1, 2019, 4);
-INSERT INTO public.temporada (idtemporada, numtemporada, qtdepisodios, anolancamento, idserie) VALUES (9, 1, 1, 2012, 5);
+COPY public.temporada (idtemporada, numtemporada, qtdepisodios, anolancamento, idserie) FROM stdin;
+1	1	2	2008	1
+2	2	2	2009	1
+3	3	2	2010	1
+4	4	2	2011	1
+5	5	2	2012	1
+6	1	1	2015	2
+7	1	1	2019	3
+8	1	1	2019	4
+9	1	1	2012	5
+\.
 
 
 --
@@ -1529,6 +1469,13 @@ ALTER TABLE ONLY public.temporada
 
 
 --
+-- Name: idx_generoobra_idgenero; Type: INDEX; Schema: public; Owner: postgres
+--
+
+CREATE INDEX idx_generoobra_idgenero ON public.generoobra USING btree (idgenero);
+
+
+--
 -- Name: assinatura assinatura_idconta_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1684,5 +1631,5 @@ ALTER TABLE ONLY public.temporada
 -- PostgreSQL database dump complete
 --
 
-\unrestrict hnWP2kU46uSFeR3d7corcbdlPjKB91NwORxDAgZqBnwC0OR4P338AkcJZwZkLal
+\unrestrict 1R9quYQ20OhHYIpHKC6R6J5590zB5fbOGs0q2IGTgEAWpHubAvhX5bhpM2qeOog
 
