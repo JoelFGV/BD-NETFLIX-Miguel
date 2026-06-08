@@ -64,13 +64,14 @@ def main():
     print("\n" + "=" * 80)
     print("📌 MENU DE OPÇÕES")
     print("=" * 80)
-    print("\n1. Iniciar Interface CRUD (Menu Interativo)")
+    print("\n1. Iniciar Interface CRUD (Usuário)")
     print("2. Executar Testes de Conexão e Performance")
     print("3. Ver Índices Criados no Banco")
-    print("4. Sair")
+    print("4. Painel Administrativo")
+    print("5. Sair")
     print()
     
-    opcao = input("Escolha uma opção (1-4): ").strip()
+    opcao = input("Escolha uma opção (1-5): ").strip()
     
     if opcao == "1":
         print("\n🚀 Iniciando Interface Netflix...\n")
@@ -114,6 +115,11 @@ def main():
             print(f"❌ Erro: {e}")
     
     elif opcao == "4":
+        import interface_admin
+        admin = interface_admin.InterfaceAdmin()
+        admin.executar()
+    
+    elif opcao == "5":
         print("\n👋 Até logo!\n")
         sys.exit(0)
     
