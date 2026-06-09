@@ -1,4 +1,4 @@
-# 🎬 NETFLIX - SISTEMA DE GERENCIAMENTO
+# 🎬 NETFLIX
 
 **Grupo:** Joel, Jordana e Miguel
 
