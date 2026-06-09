@@ -1,10 +1,28 @@
+INSERT INTO Pais (Nome) VALUES 
+('Brasil'),
+('Portugal'),
+('Canadá');
 
-INSERT INTO Endereco (Pais, Estado, Cidade) VALUES 
-('Brasil', 'São Paulo', 'São Paulo'),
-('Brasil', 'Rio de Janeiro', 'Niterói'),
-('Portugal', 'Lisboa', 'Lisboa'),
-('Brasil', 'Minas Gerais', 'Belo Horizonte'),
-('Canadá', 'Ontário', 'Toronto');
+INSERT INTO Estado (Nome, IDPais) VALUES 
+('São Paulo', 1),
+('Rio de Janeiro', 1),
+('Minas Gerais', 1),
+('Lisboa', 2),
+('Ontário', 3);
+
+INSERT INTO Cidade (Nome, IDEstado) VALUES 
+('São Paulo', 1),
+('Niterói', 2),
+('Belo Horizonte', 3),
+('Lisboa', 4),
+('Toronto', 5);
+
+INSERT INTO Endereco (IDCidade) VALUES 
+(1),
+(2),
+(4),
+(3),
+(5);
 
 INSERT INTO Genero (NomeGenero) VALUES 
 ('Fantasia'),
@@ -15,27 +33,19 @@ INSERT INTO Genero (NomeGenero) VALUES
 ('Ficção Científica'),
 ('Suspense');
 
-INSERT INTO Obra (Titulo, Sinopse, ClassEtaria, TipoObra) VALUES 
-('Como Treinar o Seu Dragão', 'Soluço é um jovem viking que não tem capacidade para lutar contra os dragões, como é a tradição local. Sua vida muda quando ele ajuda um dragão que lhe mostra toda a verdade. Juntos, eles tentam provar que dragões e humanos podem ser amigos.', '10', 'Filme'),
-('Interestelar', 'As reservas naturais da Terra estão chegando ao fim e um grupo de astronautas recebe a missão de verificar possíveis planetas para receberem a população mundial, possibilitando a continuação da espécie. Cooper é chamado para liderar o grupo e aceita a missão sabendo que pode nunca mais ver os filhos. Ao lado de Brand, Jenkins e Doyle, ele seguirá em busca de um novo lar.', '10', 'Filme'),
-('Breaking Bad', 'narra a transformação de Walter White (Bryan Cranston), um professor de química frustrado e com câncer terminal, em um impiedoso produtor de metanfetamina. Para garantir o futuro financeiro de sua família, ele se alia ao ex-aluno Jesse Pinkman (Aaron Paul), mergulhando no perigoso mundo do crime em Albuquerque.', '16', 'Série'),
-('Jogos Vorazes', 'Na região antigamente conhecida como América do Norte, a Capital de Panem controla 12 distritos e os força a escolher um garoto e uma garota, conhecidos como tributos, para competir em um evento anual televisionado. Todos os cidadãos assistem aos temidos jogos, no qual os jovens lutam até a morte, de modo que apenas um saia vitorioso. A jovem Katniss Everdeen, do Distrito 12, confia na habilidade de caça e na destreza com o arco, além dos instintos aguçados, nesta competição mortal.', '14', 'Filme'),
-('Maze Runner', 'Em um futuro apocalíptico, o jovem Thomas é escolhido para enfrentar o sistema. Ele acorda num escuro elevador em movimento e não consegue se lembrar nem de seu nome. Na comunidade isolada em que foi abandonado, Thomas conhece outros garotos que passaram pela mesma situação. Para conseguir escapar, ele precisa descobrir os sombrios segredos guardados in sua mente e correr muito.', '14', 'Filme'),
-('Better Call Saul', 'Advogado trapaceiro Jimmy McGill transforma-se no icônico e polêmico Saul.', '14', 'Série'),
-('The Mandalorian', 'Caçador de recompensas protege criança misteriosa em uma galáxia perigosa.', '12', 'Série'),
-('The Boys', 'Vigilantes enfrentam super-heróis corruptos que abusam de seus poderes especiais.', '18', 'Série'),
-('Okja', 'Menina luta para salvar criatura gigante de uma corporação cruel.', '10', 'Filme'),
-('Revolution', 'Sobreviventes buscam respostas em mundo onde toda eletricidade parou misteriosamente.', '10', 'Série');
+INSERT INTO Nacionalidade (Nome) VALUES 
+('Americano'),
+('Britânica');
 
-INSERT INTO Ator (Nome, Nacionalidade) VALUES 
-('Mason Thames', 'Americano'),
-('Nico Parker', 'Britânica'),
-('Matthew McConaughey', 'Americano'),
-('Wes Bentley', 'Americano'),
-('Bryan Cranston', 'Americano'),
-('Giancarlo Esposito', 'Americano'),
-('Jennifer Lawrence', 'Americano'),
-('Dylan OBrien', 'Americano');
+INSERT INTO Ator (Nome, IDNacionalidade) VALUES 
+('Mason Thames', 1),
+('Nico Parker', 2),
+('Matthew McConaughey', 1),
+('Wes Bentley', 1),
+('Bryan Cranston', 1),
+('Giancarlo Esposito', 1),
+('Jennifer Lawrence', 1),
+('Dylan OBrien', 1);
 
 INSERT INTO Catalogo DEFAULT VALUES;
 INSERT INTO Catalogo DEFAULT VALUES;
@@ -66,17 +76,29 @@ INSERT INTO Perfil (Nome, Avatar, IDConta) VALUES
 ('Maria', 'Princesa_1', 3),
 ('Gabriel', 'Marvel_2', 2);
 
-INSERT INTO GeneroObra (IDGenero, IDObra) VALUES 
-(1, 1), (2, 1), (3, 1),
-(6, 2), (5, 2),
-(5, 3), (7, 3),
-(4, 4), (6, 4),
-(4, 5), (7, 5),
-(3, 6),
-(4, 7),
-(2, 8),
-(7, 9),
-(5, 10);
+INSERT INTO Assinatura (DataInicio, DataFim, IDPlano, IDConta) VALUES 
+('2025-10-01', '2025-11-01', 1, 1),
+('2025-11-01', '2025-12-01', 2, 1),
+('2025-12-01', '2026-01-01', 3, 1),
+('2026-02-01', '2026-03-01', 3, 1),
+('2026-03-03', '2026-04-03', 2, 2),
+('2026-03-15', '2026-04-15', 2, 3),
+('2026-04-01', '2026-05-01', 3, 1),
+('2026-04-01', '2026-05-01', 1, 4),
+('2026-04-02', '2026-05-02', 2, 5),
+('2026-04-04', '2026-05-04', 1, 2);
+
+INSERT INTO Obra (Titulo, Sinopse, ClassEtaria, TipoObra) VALUES 
+('Como Treinar o Seu Dragão', 'Soluço é um jovem viking que não tem capacidade para lutar contra os dragões, como é a tradição local. Sua vida muda quando ele ajuda um dragão que lhe mostra toda a verdade. Juntos, eles tentam provar que dragões e humanos podem ser amigos.', '10', 'Filme'),
+('Interestelar', 'As reservas naturais da Terra estão chegando ao fim e um grupo de astronautas recebe a missão de verificar possíveis planetas para receberem a população mundial, possibilitando a continuação da espécie. Cooper é chamado para liderar o grupo e aceita a missão sabendo que pode nunca mais ver os filhos. Ao lado de Brand, Jenkins e Doyle, ele seguirá em busca de um novo lar.', '10', 'Filme'),
+('Breaking Bad', 'narra a transformação de Walter White (Bryan Cranston), um professor de química frustrado e com câncer terminal, em um impiedoso produtor de metanfetamina. Para garantir o futuro financeiro de sua família, ele se alia ao ex-aluno Jesse Pinkman (Aaron Paul), mergulhando no perigoso mundo do crime em Albuquerque.', '16', 'Série'),
+('Jogos Vorazes', 'Na região antigamente conhecida como América do Norte, a Capital de Panem controla 12 distritos e os força a escolher um garoto e uma garota, conhecidos como tributos, para competir em um evento anual televisionado. Todos os cidadãos assistem aos temidos jogos, no qual os jovens lutam até a morte, de modo que apenas um saia vitorioso. A jovem Katniss Everdeen, do Distrito 12, confia na habilidade de caça e na destreza com o arco, além dos instintos aguçados, nesta competição mortal.', '14', 'Filme'),
+('Maze Runner', 'Em um futuro apocalíptico, o jovem Thomas é escolher o sistema. Ele acorda num escuro elevador em movimento e não consegue se lembrar nem de seu nome. Na comunidade isolada em que foi abandonado, Thomas conhece outros garotos que passaram pela mesma situação. Para conseguir escapar, ele precisa descobrir os sombrios segredos guardados in sua mente e correr muito.', '14', 'Filme'),
+('Better Call Saul', 'Advogado trapaceiro Jimmy McGill transforma-se no icônico e polêmico Saul.', '14', 'Série'),
+('The Mandalorian', 'Caçador de recompensas protege criança misteriosa em uma galáxia perigosa.', '12', 'Série'),
+('The Boys', 'Vigilantes enfrentam super-heróis corruptos que abusam de seus poderes especiais.', '18', 'Série'),
+('Okja', 'Menina luta para salvar criatura gigante de uma corporação cruel.', '10', 'Filme'),
+('Revolution', 'Sobreviventes buscam respostas em mundo onde toda eletricidade parou misteriosamente.', '10', 'Série');
 
 INSERT INTO Filme (DuracaoMinutos, AnoLancamento, IDObra) VALUES 
 (125, 2025, 1),
@@ -85,23 +107,23 @@ INSERT INTO Filme (DuracaoMinutos, AnoLancamento, IDObra) VALUES
 (113, 2014, 5),
 (120, 2017, 9);
 
-INSERT INTO Serie (QtdTemporadas, IDObra) VALUES 
-(5, 3),
-(1, 6),
-(1, 7),
-(1, 8),
-(1, 10);
+INSERT INTO Serie (IDObra) VALUES 
+(3),
+(6),
+(7),
+(8),
+(10);
 
-INSERT INTO Temporada (NumTemporada, QtdEpisodios, AnoLancamento, IDSerie) VALUES 
-(1, 2, 2008, 1),
-(2, 2, 2009, 1),
-(3, 2, 2010, 1),
-(4, 2, 2011, 1),
-(5, 2, 2012, 1),
-(1, 1, 2015, 2),
-(1, 1, 2019, 3),
-(1, 1, 2019, 4),
-(1, 1, 2012, 5);
+INSERT INTO Temporada (NumTemporada, AnoLancamento, IDSerie) VALUES 
+(1, 2008, 1),
+(2, 2009, 1),
+(3, 2010, 1),
+(4, 2011, 1),
+(5, 2012, 1),
+(1, 2015, 2),
+(1, 2019, 3),
+(1, 2019, 4),
+(1, 2012, 5);
 
 INSERT INTO Episodio (IDTemporada, Titulo, DuracaoMinutos, Sinopse) VALUES 
 (1, 'Piloto', 58, ' Professor com câncer começa a fabricar metanfetamina no deserto.'), 
@@ -119,10 +141,22 @@ INSERT INTO Episodio (IDTemporada, Titulo, DuracaoMinutos, Sinopse) VALUES
 (8, 'The Name of The Game', 55, 'Vigilantes enfrentam super-heróis corruptos que abusam de seus poderes especiais.'),
 (9, 'Piloto', 42, 'Sobreviventes buscam respostas em mundo onde toda eletricidade parou misteriosamente.');
 
+INSERT INTO GeneroObra (IDGenero, IDObra) VALUES 
+(1, 1), (2, 1), (3, 1),
+(6, 2), (5, 2),
+(5, 3), (7, 3),
+(4, 4), (6, 4),
+(4, 5), (7, 5),
+(3, 6),
+(4, 7),
+(2, 8),
+(7, 9),
+(5, 10);
+
 INSERT INTO Elenco (IDObra) VALUES 
 (1), (2), (3), (4), (5), (6), (7), (8), (9), (10);
 
-INSERT INTO AtoreElenco (NomePersonagem, IDElenco, IDAtor) VALUES 
+INSERT INTO AtorElenco (NomePersonagem, IDElenco, IDAtor) VALUES 
 ('Soluço', 1, 1),
 ('Astrid', 1, 2),
 ('Cooper', 2, 3),
@@ -169,15 +203,3 @@ INSERT INTO PerfilCatalogo (IDCatalogo, IDPerfil) VALUES
 (1, 7),
 (2, 8),
 (1, 9);
-
-INSERT INTO Assinatura (DataInicio, DataFim, IDPlano, IDConta) VALUES 
-('2025-10-01', '2025-11-01', 1, 1),
-('2025-11-01', '2025-12-01', 2, 1),
-('2025-12-01', '2026-01-01', 3, 1),
-('2026-02-01', '2026-03-01', 3, 1),
-('2026-03-03', '2026-04-03', 2, 2),
-('2026-03-15', '2026-04-15', 2, 3),
-('2026-04-01', '2026-05-01', 3, 1),
-('2026-04-01', '2026-05-01', 1, 4),
-('2026-04-02', '2026-05-02', 2, 5),
-('2026-04-04', '2026-05-04', 1, 2);
