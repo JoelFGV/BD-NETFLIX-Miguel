@@ -2,7 +2,7 @@
 -- PostgreSQL database dump
 --
 
-\restrict 1R9quYQ20OhHYIpHKC6R6J5590zB5fbOGs0q2IGTgEAWpHubAvhX5bhpM2qeOog
+\restrict GE2IIQnYmGvi2l2XSYO1uapjSq6egS5qHV6ZAYPgQVVWucqvtDrJd59BqVTNjKi
 
 -- Dumped from database version 15.18
 -- Dumped by pg_dump version 15.18 (Debian 15.18-0+deb12u1)
@@ -66,7 +66,7 @@ ALTER SEQUENCE public.assinatura_idassinatura_seq OWNED BY public.assinatura.ida
 CREATE TABLE public.ator (
     idator integer NOT NULL,
     nome character varying(150) NOT NULL,
-    nacionalidade character varying(100)
+    idnacionalidade integer NOT NULL
 );
 
 
@@ -95,24 +95,24 @@ ALTER SEQUENCE public.ator_idator_seq OWNED BY public.ator.idator;
 
 
 --
--- Name: atoreelenco; Type: TABLE; Schema: public; Owner: postgres
+-- Name: atorelenco; Type: TABLE; Schema: public; Owner: postgres
 --
 
-CREATE TABLE public.atoreelenco (
-    idatoreelenco integer NOT NULL,
+CREATE TABLE public.atorelenco (
+    idatorelenco integer NOT NULL,
     nomepersonagem character varying(150),
     idelenco integer NOT NULL,
     idator integer NOT NULL
 );
 
 
-ALTER TABLE public.atoreelenco OWNER TO postgres;
+ALTER TABLE public.atorelenco OWNER TO postgres;
 
 --
--- Name: atoreelenco_idatoreelenco_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: atorelenco_idatorelenco_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
-CREATE SEQUENCE public.atoreelenco_idatoreelenco_seq
+CREATE SEQUENCE public.atorelenco_idatorelenco_seq
     AS integer
     START WITH 1
     INCREMENT BY 1
@@ -121,13 +121,13 @@ CREATE SEQUENCE public.atoreelenco_idatoreelenco_seq
     CACHE 1;
 
 
-ALTER TABLE public.atoreelenco_idatoreelenco_seq OWNER TO postgres;
+ALTER TABLE public.atorelenco_idatorelenco_seq OWNER TO postgres;
 
 --
--- Name: atoreelenco_idatoreelenco_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: atorelenco_idatorelenco_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
-ALTER SEQUENCE public.atoreelenco_idatoreelenco_seq OWNED BY public.atoreelenco.idatoreelenco;
+ALTER SEQUENCE public.atorelenco_idatorelenco_seq OWNED BY public.atorelenco.idatorelenco;
 
 
 --
@@ -161,6 +161,41 @@ ALTER TABLE public.catalogo_idcatalogo_seq OWNER TO postgres;
 --
 
 ALTER SEQUENCE public.catalogo_idcatalogo_seq OWNED BY public.catalogo.idcatalogo;
+
+
+--
+-- Name: cidade; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.cidade (
+    idcidade integer NOT NULL,
+    nome character varying(100) NOT NULL,
+    idestado integer NOT NULL
+);
+
+
+ALTER TABLE public.cidade OWNER TO postgres;
+
+--
+-- Name: cidade_idcidade_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.cidade_idcidade_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.cidade_idcidade_seq OWNER TO postgres;
+
+--
+-- Name: cidade_idcidade_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.cidade_idcidade_seq OWNED BY public.cidade.idcidade;
 
 
 --
@@ -239,9 +274,7 @@ ALTER SEQUENCE public.elenco_idelenco_seq OWNED BY public.elenco.idelenco;
 
 CREATE TABLE public.endereco (
     idendereco integer NOT NULL,
-    pais character varying(100) NOT NULL,
-    estado character varying(100) NOT NULL,
-    cidade character varying(100) NOT NULL
+    idcidade integer NOT NULL
 );
 
 
@@ -275,10 +308,10 @@ ALTER SEQUENCE public.endereco_idendereco_seq OWNED BY public.endereco.idenderec
 
 CREATE TABLE public.episodio (
     idepisodio integer NOT NULL,
-    idtemporada integer NOT NULL,
     titulo character varying(250) NOT NULL,
     duracaominutos integer NOT NULL,
-    sinopse text
+    sinopse text,
+    idtemporada integer NOT NULL
 );
 
 
@@ -304,6 +337,41 @@ ALTER TABLE public.episodio_idepisodio_seq OWNER TO postgres;
 --
 
 ALTER SEQUENCE public.episodio_idepisodio_seq OWNED BY public.episodio.idepisodio;
+
+
+--
+-- Name: estado; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.estado (
+    idestado integer NOT NULL,
+    nome character varying(100) NOT NULL,
+    idpais integer NOT NULL
+);
+
+
+ALTER TABLE public.estado OWNER TO postgres;
+
+--
+-- Name: estado_idestado_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.estado_idestado_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.estado_idestado_seq OWNER TO postgres;
+
+--
+-- Name: estado_idestado_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.estado_idestado_seq OWNED BY public.estado.idestado;
 
 
 --
@@ -448,6 +516,40 @@ ALTER SEQUENCE public.historico_idhistorico_seq OWNED BY public.historico.idhist
 
 
 --
+-- Name: nacionalidade; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.nacionalidade (
+    idnacionalidade integer NOT NULL,
+    nome character varying(100) NOT NULL
+);
+
+
+ALTER TABLE public.nacionalidade OWNER TO postgres;
+
+--
+-- Name: nacionalidade_idnacionalidade_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.nacionalidade_idnacionalidade_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.nacionalidade_idnacionalidade_seq OWNER TO postgres;
+
+--
+-- Name: nacionalidade_idnacionalidade_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.nacionalidade_idnacionalidade_seq OWNED BY public.nacionalidade.idnacionalidade;
+
+
+--
 -- Name: obra; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -520,13 +622,47 @@ ALTER SEQUENCE public.obracatalogo_idobracatalogo_seq OWNED BY public.obracatalo
 
 
 --
+-- Name: pais; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.pais (
+    idpais integer NOT NULL,
+    nome character varying(100) NOT NULL
+);
+
+
+ALTER TABLE public.pais OWNER TO postgres;
+
+--
+-- Name: pais_idpais_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.pais_idpais_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.pais_idpais_seq OWNER TO postgres;
+
+--
+-- Name: pais_idpais_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.pais_idpais_seq OWNED BY public.pais.idpais;
+
+
+--
 -- Name: perfil; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE public.perfil (
     idperfil integer NOT NULL,
-    nome character varying(150) NOT NULL,
     avatar character varying(80),
+    nome character varying(150) NOT NULL,
     idconta integer NOT NULL
 );
 
@@ -596,9 +732,9 @@ ALTER SEQUENCE public.perfilcatalogo_idperfilcatalogo_seq OWNED BY public.perfil
 
 CREATE TABLE public.plano (
     idplano integer NOT NULL,
-    nome character varying(100) NOT NULL,
     valor numeric(10,2) NOT NULL,
     duracaomeses integer NOT NULL,
+    nome character varying(100) NOT NULL,
     beneficios text
 );
 
@@ -633,7 +769,6 @@ ALTER SEQUENCE public.plano_idplano_seq OWNED BY public.plano.idplano;
 
 CREATE TABLE public.serie (
     idserie integer NOT NULL,
-    qtdtemporadas integer,
     idobra integer NOT NULL
 );
 
@@ -669,7 +804,6 @@ ALTER SEQUENCE public.serie_idserie_seq OWNED BY public.serie.idserie;
 CREATE TABLE public.temporada (
     idtemporada integer NOT NULL,
     numtemporada integer NOT NULL,
-    qtdepisodios integer,
     anolancamento integer,
     idserie integer NOT NULL
 );
@@ -714,10 +848,10 @@ ALTER TABLE ONLY public.ator ALTER COLUMN idator SET DEFAULT nextval('public.ato
 
 
 --
--- Name: atoreelenco idatoreelenco; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: atorelenco idatorelenco; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
-ALTER TABLE ONLY public.atoreelenco ALTER COLUMN idatoreelenco SET DEFAULT nextval('public.atoreelenco_idatoreelenco_seq'::regclass);
+ALTER TABLE ONLY public.atorelenco ALTER COLUMN idatorelenco SET DEFAULT nextval('public.atorelenco_idatorelenco_seq'::regclass);
 
 
 --
@@ -725,6 +859,13 @@ ALTER TABLE ONLY public.atoreelenco ALTER COLUMN idatoreelenco SET DEFAULT nextv
 --
 
 ALTER TABLE ONLY public.catalogo ALTER COLUMN idcatalogo SET DEFAULT nextval('public.catalogo_idcatalogo_seq'::regclass);
+
+
+--
+-- Name: cidade idcidade; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.cidade ALTER COLUMN idcidade SET DEFAULT nextval('public.cidade_idcidade_seq'::regclass);
 
 
 --
@@ -756,6 +897,13 @@ ALTER TABLE ONLY public.episodio ALTER COLUMN idepisodio SET DEFAULT nextval('pu
 
 
 --
+-- Name: estado idestado; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.estado ALTER COLUMN idestado SET DEFAULT nextval('public.estado_idestado_seq'::regclass);
+
+
+--
 -- Name: filme idfilme; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -784,6 +932,13 @@ ALTER TABLE ONLY public.historico ALTER COLUMN idhistorico SET DEFAULT nextval('
 
 
 --
+-- Name: nacionalidade idnacionalidade; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.nacionalidade ALTER COLUMN idnacionalidade SET DEFAULT nextval('public.nacionalidade_idnacionalidade_seq'::regclass);
+
+
+--
 -- Name: obra idobra; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -795,6 +950,13 @@ ALTER TABLE ONLY public.obra ALTER COLUMN idobra SET DEFAULT nextval('public.obr
 --
 
 ALTER TABLE ONLY public.obracatalogo ALTER COLUMN idobracatalogo SET DEFAULT nextval('public.obracatalogo_idobracatalogo_seq'::regclass);
+
+
+--
+-- Name: pais idpais; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.pais ALTER COLUMN idpais SET DEFAULT nextval('public.pais_idpais_seq'::regclass);
 
 
 --
@@ -854,23 +1016,23 @@ COPY public.assinatura (idassinatura, datainicio, datafim, idplano, idconta) FRO
 -- Data for Name: ator; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.ator (idator, nome, nacionalidade) FROM stdin;
-1	Mason Thames	Americano
-2	Nico Parker	Britânica
-3	Matthew McConaughey	Americano
-4	Wes Bentley	Americano
-5	Bryan Cranston	Americano
-6	Giancarlo Esposito	Americano
-7	Jennifer Lawrence	Americano
-8	Dylan OBrien	Americano
+COPY public.ator (idator, nome, idnacionalidade) FROM stdin;
+1	Mason Thames	1
+2	Nico Parker	2
+3	Matthew McConaughey	1
+4	Wes Bentley	1
+5	Bryan Cranston	1
+6	Giancarlo Esposito	1
+7	Jennifer Lawrence	1
+8	Dylan OBrien	1
 \.
 
 
 --
--- Data for Name: atoreelenco; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: atorelenco; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.atoreelenco (idatoreelenco, nomepersonagem, idelenco, idator) FROM stdin;
+COPY public.atorelenco (idatorelenco, nomepersonagem, idelenco, idator) FROM stdin;
 1	Soluço	1	1
 2	Astrid	1	2
 3	Cooper	2	3
@@ -899,6 +1061,19 @@ COPY public.catalogo (idcatalogo) FROM stdin;
 3
 4
 5
+\.
+
+
+--
+-- Data for Name: cidade; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.cidade (idcidade, nome, idestado) FROM stdin;
+1	São Paulo	1
+2	Niterói	2
+3	Belo Horizonte	3
+4	Lisboa	4
+5	Toronto	5
 \.
 
 
@@ -937,12 +1112,12 @@ COPY public.elenco (idelenco, idobra) FROM stdin;
 -- Data for Name: endereco; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.endereco (idendereco, pais, estado, cidade) FROM stdin;
-1	Brasil	São Paulo	São Paulo
-2	Brasil	Rio de Janeiro	Niterói
-3	Portugal	Lisboa	Lisboa
-4	Brasil	Minas Gerais	Belo Horizonte
-5	Canadá	Ontário	Toronto
+COPY public.endereco (idendereco, idcidade) FROM stdin;
+1	1
+2	2
+3	4
+4	3
+5	5
 \.
 
 
@@ -950,21 +1125,34 @@ COPY public.endereco (idendereco, pais, estado, cidade) FROM stdin;
 -- Data for Name: episodio; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.episodio (idepisodio, idtemporada, titulo, duracaominutos, sinopse) FROM stdin;
-1	1	Piloto	58	 Professor com câncer começa a fabricar metanfetamina no deserto.
-2	1	O Gato está no Saco...	48	Walt e Jesse lidam com dois traficantes no porão.
-3	2	Sete Trinta e Sete	47	Tuco sequestra Walt e Jesse após o negócio falhar.
-4	2	Na Grelha	47	Walt e Jesse tentam escapar da casa do tio de Tuco.
-5	3	No Más	47	Walt lida com o divórcio enquanto Skyler descobre segredos.
-6	3	Cavalo sem Nome	47	Walt tenta se reconciliar com a família após o acidente.
-7	4	Estilete	47	Gus mata um capanga brutalmente para enviar um aviso.
-8	4	Trinta e Oito Cano Curto	47	Walt compra uma arma ilegal para tentar matar Gus.
-9	5	Viver Livre ou Morrer	43	Walt usa um superímã para destruir provas da polícia.
-10	5	Madrigal	47	Mike e Walt formam uma nova parceria para o tráfico.
-11	6	Uno	50	Advogado trapaceiro Jimmy McGill transforma-se no icônico e polêmico Saul.
-12	7	The Mandalorian	40	Caçador de recompensas protege criança misteriosa em uma galáxia perigosa.
-13	8	The Name of The Game	55	Vigilantes enfrentam super-heróis corruptos que abusam de seus poderes especiais.
-14	9	Piloto	42	Sobreviventes buscam respostas em mundo onde toda eletricidade parou misteriosamente.
+COPY public.episodio (idepisodio, titulo, duracaominutos, sinopse, idtemporada) FROM stdin;
+1	Piloto	58	 Professor com câncer começa a fabricar metanfetamina no deserto.	1
+2	O Gato está no Saco...	48	Walt e Jesse lidam com dois traficantes no porão.	1
+3	Sete Trinta e Sete	47	Tuco sequestra Walt e Jesse após o negócio falhar.	2
+4	Na Grelha	47	Walt e Jesse tentam escapar da casa do tio de Tuco.	2
+5	No Más	47	Walt lida com o divórcio enquanto Skyler descobre segredos.	3
+6	Cavalo sem Nome	47	Walt tenta se reconciliar com a família após o acidente.	3
+7	Estilete	47	Gus mata um capanga brutalmente para enviar um aviso.	4
+8	Trinta e Oito Cano Curto	47	Walt compra uma arma ilegal para tentar matar Gus.	4
+9	Viver Livre ou Morrer	43	Walt usa um superímã para destruir provas da polícia.	5
+10	Madrigal	47	Mike e Walt formam uma nova parceria para o tráfico.	5
+11	Uno	50	Advogado trapaceiro Jimmy McGill transforma-se no icônico e polêmico Saul.	6
+12	The Mandalorian	40	Caçador de recompensas protege criança misteriosa em uma galáxia perigosa.	7
+13	The Name of The Game	55	Vigilantes enfrentam super-heróis corruptos que abusam de seus poderes especiais.	8
+14	Piloto	42	Sobreviventes buscam respostas em mundo onde toda eletricidade parou misteriosamente.	9
+\.
+
+
+--
+-- Data for Name: estado; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.estado (idestado, nome, idpais) FROM stdin;
+1	São Paulo	1
+2	Rio de Janeiro	1
+3	Minas Gerais	1
+4	Lisboa	2
+5	Ontário	3
 \.
 
 
@@ -1039,6 +1227,16 @@ COPY public.historico (idhistorico, datahora, idperfil, idobra) FROM stdin;
 
 
 --
+-- Data for Name: nacionalidade; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.nacionalidade (idnacionalidade, nome) FROM stdin;
+1	Americano
+2	Britânica
+\.
+
+
+--
 -- Data for Name: obra; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -1047,7 +1245,7 @@ COPY public.obra (idobra, titulo, sinopse, classetaria, tipoobra) FROM stdin;
 2	Interestelar	As reservas naturais da Terra estão chegando ao fim e um grupo de astronautas recebe a missão de verificar possíveis planetas para receberem a população mundial, possibilitando a continuação da espécie. Cooper é chamado para liderar o grupo e aceita a missão sabendo que pode nunca mais ver os filhos. Ao lado de Brand, Jenkins e Doyle, ele seguirá em busca de um novo lar.	10	Filme
 3	Breaking Bad	narra a transformação de Walter White (Bryan Cranston), um professor de química frustrado e com câncer terminal, em um impiedoso produtor de metanfetamina. Para garantir o futuro financeiro de sua família, ele se alia ao ex-aluno Jesse Pinkman (Aaron Paul), mergulhando no perigoso mundo do crime em Albuquerque.	16	Série
 4	Jogos Vorazes	Na região antigamente conhecida como América do Norte, a Capital de Panem controla 12 distritos e os força a escolher um garoto e uma garota, conhecidos como tributos, para competir em um evento anual televisionado. Todos os cidadãos assistem aos temidos jogos, no qual os jovens lutam até a morte, de modo que apenas um saia vitorioso. A jovem Katniss Everdeen, do Distrito 12, confia na habilidade de caça e na destreza com o arco, além dos instintos aguçados, nesta competição mortal.	14	Filme
-5	Maze Runner	Em um futuro apocalíptico, o jovem Thomas é escolhido para enfrentar o sistema. Ele acorda num escuro elevador em movimento e não consegue se lembrar nem de seu nome. Na comunidade isolada em que foi abandonado, Thomas conhece outros garotos que passaram pela mesma situação. Para conseguir escapar, ele precisa descobrir os sombrios segredos guardados in sua mente e correr muito.	14	Filme
+5	Maze Runner	Em um futuro apocalíptico, o jovem Thomas é escolher o sistema. Ele acorda num escuro elevador em movimento e não consegue se lembrar nem de seu nome. Na comunidade isolada em que foi abandonado, Thomas conhece outros garotos que passaram pela mesma situação. Para conseguir escapar, ele precisa descobrir os sombrios segredos guardados in sua mente e correr muito.	14	Filme
 6	Better Call Saul	Advogado trapaceiro Jimmy McGill transforma-se no icônico e polêmico Saul.	14	Série
 7	The Mandalorian	Caçador de recompensas protege criança misteriosa em uma galáxia perigosa.	12	Série
 8	The Boys	Vigilantes enfrentam super-heróis corruptos que abusam de seus poderes especiais.	18	Série
@@ -1085,19 +1283,30 @@ COPY public.obracatalogo (idobracatalogo, idobra, idcatalogo) FROM stdin;
 
 
 --
+-- Data for Name: pais; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.pais (idpais, nome) FROM stdin;
+1	Brasil
+2	Portugal
+3	Canadá
+\.
+
+
+--
 -- Data for Name: perfil; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.perfil (idperfil, nome, avatar, idconta) FROM stdin;
-1	Ana	Red_3	1
-2	Bruno	Cavaleiro_2	2
-3	Caio	Dragao_5	3
-4	Diana	Princesa_1	4
-5	Edna	Green_4	5
-6	Fernando	Red_3	4
-7	Visitas	Divertidamente_3	2
-8	Maria	Princesa_1	3
-9	Gabriel	Marvel_2	2
+COPY public.perfil (idperfil, avatar, nome, idconta) FROM stdin;
+1	Red_3	Ana	1
+2	Cavaleiro_2	Bruno	2
+3	Dragao_5	Caio	3
+4	Princesa_1	Diana	4
+5	Green_4	Edna	5
+6	Red_3	Fernando	4
+7	Divertidamente_3	Visitas	2
+8	Princesa_1	Maria	3
+9	Marvel_2	Gabriel	2
 \.
 
 
@@ -1122,10 +1331,10 @@ COPY public.perfilcatalogo (idperfilcatalogo, idcatalogo, idperfil) FROM stdin;
 -- Data for Name: plano; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.plano (idplano, nome, valor, duracaomeses, beneficios) FROM stdin;
-1	Padrão com anuncios	20.90	1	Veja filme em qualidade FHD com anuncios!
-2	Padrão	44.90	1	Veja filmes em qualidade FHD!
-3	Premium	59.90	1	Veja filmes em qualidade UHD e com HDR!
+COPY public.plano (idplano, valor, duracaomeses, nome, beneficios) FROM stdin;
+1	20.90	1	Padrão com anuncios	Veja filme em qualidade FHD com anuncios!
+2	44.90	1	Padrão	Veja filmes em qualidade FHD!
+3	59.90	1	Premium	Veja filmes em qualidade UHD e com HDR!
 \.
 
 
@@ -1133,12 +1342,12 @@ COPY public.plano (idplano, nome, valor, duracaomeses, beneficios) FROM stdin;
 -- Data for Name: serie; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.serie (idserie, qtdtemporadas, idobra) FROM stdin;
-1	5	3
-2	1	6
-3	1	7
-4	1	8
-5	1	10
+COPY public.serie (idserie, idobra) FROM stdin;
+1	3
+2	6
+3	7
+4	8
+5	10
 \.
 
 
@@ -1146,16 +1355,16 @@ COPY public.serie (idserie, qtdtemporadas, idobra) FROM stdin;
 -- Data for Name: temporada; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.temporada (idtemporada, numtemporada, qtdepisodios, anolancamento, idserie) FROM stdin;
-1	1	2	2008	1
-2	2	2	2009	1
-3	3	2	2010	1
-4	4	2	2011	1
-5	5	2	2012	1
-6	1	1	2015	2
-7	1	1	2019	3
-8	1	1	2019	4
-9	1	1	2012	5
+COPY public.temporada (idtemporada, numtemporada, anolancamento, idserie) FROM stdin;
+1	1	2008	1
+2	2	2009	1
+3	3	2010	1
+4	4	2011	1
+5	5	2012	1
+6	1	2015	2
+7	1	2019	3
+8	1	2019	4
+9	1	2012	5
 \.
 
 
@@ -1163,7 +1372,7 @@ COPY public.temporada (idtemporada, numtemporada, qtdepisodios, anolancamento, i
 -- Name: assinatura_idassinatura_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.assinatura_idassinatura_seq', 10, true);
+SELECT pg_catalog.setval('public.assinatura_idassinatura_seq', 11, true);
 
 
 --
@@ -1174,10 +1383,10 @@ SELECT pg_catalog.setval('public.ator_idator_seq', 8, true);
 
 
 --
--- Name: atoreelenco_idatoreelenco_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: atorelenco_idatorelenco_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.atoreelenco_idatoreelenco_seq', 15, true);
+SELECT pg_catalog.setval('public.atorelenco_idatorelenco_seq', 15, true);
 
 
 --
@@ -1188,10 +1397,17 @@ SELECT pg_catalog.setval('public.catalogo_idcatalogo_seq', 5, true);
 
 
 --
+-- Name: cidade_idcidade_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.cidade_idcidade_seq', 5, true);
+
+
+--
 -- Name: conta_idconta_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.conta_idconta_seq', 5, true);
+SELECT pg_catalog.setval('public.conta_idconta_seq', 6, true);
 
 
 --
@@ -1213,6 +1429,13 @@ SELECT pg_catalog.setval('public.endereco_idendereco_seq', 5, true);
 --
 
 SELECT pg_catalog.setval('public.episodio_idepisodio_seq', 14, true);
+
+
+--
+-- Name: estado_idestado_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.estado_idestado_seq', 5, true);
 
 
 --
@@ -1244,6 +1467,13 @@ SELECT pg_catalog.setval('public.historico_idhistorico_seq', 10, true);
 
 
 --
+-- Name: nacionalidade_idnacionalidade_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.nacionalidade_idnacionalidade_seq', 2, true);
+
+
+--
 -- Name: obra_idobra_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
@@ -1258,10 +1488,17 @@ SELECT pg_catalog.setval('public.obracatalogo_idobracatalogo_seq', 20, true);
 
 
 --
+-- Name: pais_idpais_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.pais_idpais_seq', 3, true);
+
+
+--
 -- Name: perfil_idperfil_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.perfil_idperfil_seq', 9, true);
+SELECT pg_catalog.setval('public.perfil_idperfil_seq', 11, true);
 
 
 --
@@ -1309,11 +1546,11 @@ ALTER TABLE ONLY public.ator
 
 
 --
--- Name: atoreelenco atoreelenco_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: atorelenco atorelenco_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
-ALTER TABLE ONLY public.atoreelenco
-    ADD CONSTRAINT atoreelenco_pkey PRIMARY KEY (idatoreelenco);
+ALTER TABLE ONLY public.atorelenco
+    ADD CONSTRAINT atorelenco_pkey PRIMARY KEY (idatorelenco);
 
 
 --
@@ -1322,6 +1559,14 @@ ALTER TABLE ONLY public.atoreelenco
 
 ALTER TABLE ONLY public.catalogo
     ADD CONSTRAINT catalogo_pkey PRIMARY KEY (idcatalogo);
+
+
+--
+-- Name: cidade cidade_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.cidade
+    ADD CONSTRAINT cidade_pkey PRIMARY KEY (idcidade);
 
 
 --
@@ -1365,6 +1610,14 @@ ALTER TABLE ONLY public.episodio
 
 
 --
+-- Name: estado estado_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.estado
+    ADD CONSTRAINT estado_pkey PRIMARY KEY (idestado);
+
+
+--
 -- Name: filme filme_idobra_key; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1405,6 +1658,14 @@ ALTER TABLE ONLY public.historico
 
 
 --
+-- Name: nacionalidade nacionalidade_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.nacionalidade
+    ADD CONSTRAINT nacionalidade_pkey PRIMARY KEY (idnacionalidade);
+
+
+--
 -- Name: obra obra_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1418,6 +1679,14 @@ ALTER TABLE ONLY public.obra
 
 ALTER TABLE ONLY public.obracatalogo
     ADD CONSTRAINT obracatalogo_pkey PRIMARY KEY (idobracatalogo);
+
+
+--
+-- Name: pais pais_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.pais
+    ADD CONSTRAINT pais_pkey PRIMARY KEY (idpais);
 
 
 --
@@ -1492,19 +1761,35 @@ ALTER TABLE ONLY public.assinatura
 
 
 --
--- Name: atoreelenco atoreelenco_idator_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: ator ator_idnacionalidade_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
-ALTER TABLE ONLY public.atoreelenco
-    ADD CONSTRAINT atoreelenco_idator_fkey FOREIGN KEY (idator) REFERENCES public.ator(idator);
+ALTER TABLE ONLY public.ator
+    ADD CONSTRAINT ator_idnacionalidade_fkey FOREIGN KEY (idnacionalidade) REFERENCES public.nacionalidade(idnacionalidade);
 
 
 --
--- Name: atoreelenco atoreelenco_idelenco_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: atorelenco atorelenco_idator_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
-ALTER TABLE ONLY public.atoreelenco
-    ADD CONSTRAINT atoreelenco_idelenco_fkey FOREIGN KEY (idelenco) REFERENCES public.elenco(idelenco);
+ALTER TABLE ONLY public.atorelenco
+    ADD CONSTRAINT atorelenco_idator_fkey FOREIGN KEY (idator) REFERENCES public.ator(idator);
+
+
+--
+-- Name: atorelenco atorelenco_idelenco_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.atorelenco
+    ADD CONSTRAINT atorelenco_idelenco_fkey FOREIGN KEY (idelenco) REFERENCES public.elenco(idelenco);
+
+
+--
+-- Name: cidade cidade_idestado_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.cidade
+    ADD CONSTRAINT cidade_idestado_fkey FOREIGN KEY (idestado) REFERENCES public.estado(idestado);
 
 
 --
@@ -1524,11 +1809,27 @@ ALTER TABLE ONLY public.elenco
 
 
 --
+-- Name: endereco endereco_idcidade_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.endereco
+    ADD CONSTRAINT endereco_idcidade_fkey FOREIGN KEY (idcidade) REFERENCES public.cidade(idcidade);
+
+
+--
 -- Name: episodio episodio_idtemporada_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.episodio
     ADD CONSTRAINT episodio_idtemporada_fkey FOREIGN KEY (idtemporada) REFERENCES public.temporada(idtemporada);
+
+
+--
+-- Name: estado estado_idpais_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.estado
+    ADD CONSTRAINT estado_idpais_fkey FOREIGN KEY (idpais) REFERENCES public.pais(idpais);
 
 
 --
@@ -1631,5 +1932,5 @@ ALTER TABLE ONLY public.temporada
 -- PostgreSQL database dump complete
 --
 
-\unrestrict 1R9quYQ20OhHYIpHKC6R6J5590zB5fbOGs0q2IGTgEAWpHubAvhX5bhpM2qeOog
+\unrestrict GE2IIQnYmGvi2l2XSYO1uapjSq6egS5qHV6ZAYPgQVVWucqvtDrJd59BqVTNjKi
 
